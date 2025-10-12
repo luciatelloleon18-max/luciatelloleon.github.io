@@ -6,98 +6,268 @@
   <title>Lucía Tello | Portafolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --rosa-claro:#fdeef4;
-      --rosa-acento:#f4b6c2;
-      --rosa-intenso:#e79ab0;
-      --texto:#333;
-      --blanco:#fff;
+    :root {
+      --rosa-claro: #fdeef4;
+      --rosa-acento: #f4b6c2;
+      --rosa-intenso: #e79ab0;
+      --texto: #333;
+      --blanco: #fff;
     }
-    *{box-sizing:border-box; scroll-behavior:smooth;}
-    body{ margin:0; font-family:'Poppins',sans-serif; background-color:var(--rosa-claro); color:var(--texto); }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--rosa-claro);
+      color: var(--texto);
+    }
 
     /* NAVBAR */
-    nav{
-      background-color:var(--blanco);
-      box-shadow:0 2px 10px rgba(0,0,0,0.05);
-      position:fixed; top:0; width:100%; z-index:1000;
-      display:flex; justify-content:center; gap:1rem; padding:0.9rem 1rem; flex-wrap:wrap;
-      transition:transform .28s ease, box-shadow .2s;
+    nav {
+      background-color: var(--blanco);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      transition: top 0.4s;
     }
-    nav.hidden-nav{ transform: translateY(-110%); }
-    nav a{ color:var(--texto); text-decoration:none; font-weight:500; transition:color .2s; padding:0.25rem .5rem; }
-    nav a:hover{ color:var(--rosa-intenso); }
 
-    main{ padding-top:5.6rem; }
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 0.25rem 0.5rem;
+    }
+
+    nav a:hover {
+      color: var(--rosa-intenso);
+    }
+
+    main {
+      padding-top: 5.2rem;
+    }
 
     /* HEADER */
-    header{ text-align:center; padding:3.5rem 2rem 2rem; }
-    header img{ width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid var(--rosa-acento);box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-    header h1{ margin-top:1rem;color:var(--rosa-intenso);font-size:2.1rem; }
-    header p{ max-width:760px;margin:.6rem auto 0;font-size:1rem; }
+    header {
+      text-align: center;
+      padding: 3.5rem 2rem 2rem;
+    }
 
-    section{ padding:3rem 1.5rem; max-width:1000px; margin:0 auto; }
-    h2{ color:var(--rosa-intenso); border-bottom:2px solid var(--rosa-acento); display:inline-block; margin-bottom:1rem; font-size:1.6rem; }
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--rosa-acento);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-    .card{ background-color:var(--blanco); border-radius:12px; padding:1.2rem; margin-bottom:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform .2s, box-shadow .3s; }
-    .card:hover{ transform:translateY(-3px); box-shadow:0 8px 16px rgba(0,0,0,0.08); }
+    header h1 {
+      margin-top: 1rem;
+      color: var(--rosa-intenso);
+      font-size: 2.1rem;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0.6rem auto 0;
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: var(--rosa-intenso);
+      border-bottom: 2px solid var(--rosa-acento);
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .card {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
 
     /* SKILLS */
-    .skills-container{ display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:1rem; justify-content:center; align-items:center; }
-    .skill-item{ display:flex; flex-direction:column; align-items:center; gap:.5rem; transition:transform .3s; width:92px; }
-    .skill-item:hover{ transform:translateY(-6px) scale(1.02); }
-    .skill-item img, .skill-item svg{ width:60px; height:60px; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(.95); transition:all .25s; }
-    .skill-item img:hover, .skill-item svg:hover{ filter:drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1); transform:scale(1.07); }
-    .skill-item span{ font-size:.85rem; color:var(--rosa-intenso); font-weight:500; text-align:center; }
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
 
-    /* TRAYECTORIA (timeline con puntitos centrados sobre la línea) */
-    .timeline{ position:relative; margin-top:1rem; padding-left:50px; }
-    .timeline::before{ content:''; position:absolute; left:25px; top:0; width:4px; height:100%; background:linear-gradient(180deg,var(--rosa-acento),var(--rosa-intenso)); border-radius:4px; }
-    .timeline-item{ position:relative; margin-bottom:1.6rem; }
-    /* DOT pequeño centrado exactamente sobre la línea para cada item */
-    .timeline-dot{ position:absolute; left:21px; top:50%; transform:translateY(-50%); width:12px; height:12px; background-color:var(--rosa-intenso); border:2px solid var(--blanco); border-radius:50%; box-shadow:none; }
-    .timeline-content{ background-color:var(--blanco); padding:1rem; border-radius:12px; box-shadow:0 6px 14px rgba(0,0,0,0.06); border-left:4px solid rgba(231,154,176,0.12); transition:transform .15s; position:relative; }
-    .timeline-content:hover{ transform:translateY(-4px); }
-    .timeline-year{ color:var(--rosa-intenso); font-weight:700; font-size:.98rem; }
-    .timeline-title{ color:var(--texto); font-weight:600; font-size:1.02rem; margin-bottom:.25rem; }
-    .timeline-desc{ color:#555; font-size:.92rem; }
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
+      width: 92px;
+    }
 
-    /* GRIDS */
-    .proyectos,.experiencias-grid,.honores-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
-    .proyecto,.experiencia-card,.honor-card{ background-color:var(--blanco); border-radius:12px; padding:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform .2s ease, box-shadow .25s ease; }
-    .proyecto:hover,.experiencia-card:hover,.honor-card:hover{ transform:translateY(-6px); box-shadow:0 10px 20px rgba(0,0,0,0.08); }
-    .proyecto h3,.experiencia-card h4,.honor-card h4{ color:var(--rosa-intenso); margin:0 0 .4rem 0; font-size:1.05rem; }
-    .proyecto p,.experiencia-card p,.honor-card p{ margin:0; font-size:.95rem; color:#444; }
+    .skill-item:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
 
-    /* CHARLAS */
-    .charlas-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-top:1rem; }
-    .charla-card{ background-color:var(--blanco); border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform .2s ease, box-shadow .25s ease; }
-    .charla-card:hover{ transform:translateY(-4px); box-shadow:0 8px 16px rgba(0,0,0,0.09); }
-    .charla-img{ width:100%; height:140px; background:linear-gradient(135deg,var(--rosa-acento),var(--rosa-intenso)); display:flex; align-items:center; justify-content:center; color:var(--blanco); font-size:2.5rem; }
-    .charla-content{ padding:1rem; }
-    .charla-upload{ margin-top:.8rem; padding:.8rem; background-color:var(--rosa-claro); border-radius:8px; text-align:center; border:2px dashed var(--rosa-acento); cursor:pointer; transition:all .2s; }
-    .charla-upload:hover{ border-color:var(--rosa-intenso); background-color:var(--blanco); }
-    .charla-upload input{ display:none; }
-    .charla-upload label{ cursor:pointer; color:var(--rosa-intenso); font-weight:500; display:block; }
-    .preview-wrapper{ margin-top:.8rem; border-radius:8px; overflow:hidden; border:1px solid rgba(0,0,0,0.06); background:#fafafa; }
-    .preview-toolbar{ display:flex; gap:.5rem; align-items:center; padding:.5rem; background:#fff; border-bottom:1px solid rgba(0,0,0,0.04); }
-    .preview-iframe{ width:100%; height:360px; border:0; display:block; }
-    .preview-img{ width:100%; height:auto; display:block; }
+    .skill-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: grayscale(100%) drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: all 0.25s;
+    }
+
+    .skill-item img:hover {
+      filter: grayscale(0%) drop-shadow(0 6px 10px rgba(0,0,0,0.16));
+      transform: scale(1.07);
+    }
+
+    .skill-item span {
+      font-size: 0.85rem;
+      color: var(--rosa-intenso);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* TRAYECTORIA */
+    .timeline {
+      position: relative;
+      margin-top: 1rem;
+      padding-left: 50px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 25px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--rosa-acento),
+        var(--rosa-acento) 8px,
+        transparent 8px,
+        transparent 18px
+      );
+      border-radius: 4px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.6rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      background-color: var(--rosa-intenso);
+      border: 4px solid var(--blanco);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--rosa-acento);
+    }
+
+    .timeline-content {
+      background-color: var(--blanco);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+      border-left: 4px solid rgba(231,154,176,0.12);
+      transition: transform 0.15s;
+      position: relative;
+    }
+
+    .timeline-content:hover { transform: translateY(-4px); }
+    .timeline-year { color: var(--rosa-intenso); font-weight: 700; font-size: 0.98rem; }
+    .timeline-title { color: var(--texto); font-weight: 600; font-size: 1.02rem; margin-bottom: 0.25rem; }
+    .timeline-desc { color: #555; font-size: 0.92rem; }
+
+    /* GRID SECTIONS */
+    .proyectos, .experiencias-grid, .honores-grid, .charlas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .proyecto, .experiencia-card, .honor-card, .charla-card {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .proyecto:hover, .experiencia-card:hover, .honor-card:hover, .charla-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .proyecto h3, .experiencia-card h4, .honor-card h4, .charla-card h4 {
+      color: var(--rosa-intenso);
+      margin: 0 0 0.4rem 0;
+      font-size: 1.05rem;
+    }
+
+    .proyecto p, .experiencia-card p, .honor-card p, .charla-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #444;
+    }
 
     /* CONTACTO */
-    #contacto p{ text-align:center; font-size:1rem; margin:.6rem 0; }
-    #contacto a{ color:var(--rosa-intenso); text-decoration:none; font-weight:500; }
-    #contacto a:hover{ text-decoration:underline; }
+    #contacto p {
+      text-align: center;
+      font-size: 1rem;
+      margin: 0.6rem 0;
+    }
+    #contacto a {
+      color: var(--rosa-intenso);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    #contacto a:hover { text-decoration: underline; }
 
-    footer{ text-align:center; padding:2rem; font-size:.9rem; color:#666; }
-
-    /* responsive */
-    @media(max-width:900px){ header{ padding-top:2.8rem; } .skill-item{ width:78px; } }
-    @media(max-width:600px){ header{ padding-top:2.2rem; } nav{ gap:.6rem; padding:.7rem; } .timeline{ padding-left:36px; } .timeline::before{ left:18px; } .timeline-dot{ left:12px; } .preview-iframe{ height:240px; } }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <nav id="site-nav">
+  <nav id="navbar">
     <a href="#inicio">Inicio</a>
     <a href="#skills">Skills & Tech Stack</a>
     <a href="#charlas">Charlas & Vídeos</a>
@@ -115,107 +285,34 @@
       <p>Estudiante de Computación Científica en la UNMSM, apasionada por la programación, el análisis de datos y el impacto social de la innovación.</p>
     </header>
 
-    <section id="sobre-mi">
-      <h2>Sobre mí</h2>
-      <div class="card">
-        <p>Hola, soy Lucía Tello, estudiante de Computación Científica en la UNMSM y entusiasta de la tecnología apasionada por la programación, el análisis de datos y el impacto social de la innovación. Me interesa especialmente cómo la ciencia, la educación y la tecnología pueden abrir más oportunidades para las mujeres y reducir brechas de acceso. En este espacio comparto mis proyectos, aprendizajes y experimentos — desde código hasta ideas con propósito. Siempre aprendiendo algo nuevo, un commit a la vez.</p>
-      </div>
-    </section>
-
     <section id="skills">
       <h2>Skills & Tech Stack</h2>
       <div class="skills-container">
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python"><span>Python</span></div>
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg" alt="Pandas"><span>Pandas</span></div>
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg" alt="NumPy"><span>NumPy</span></div>
-
-        <!-- ICONO SQL genérico (SVG inline para consistencia y sin depender de un icono incorrecto) -->
-        <div class="skill-item" aria-label="SQL">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <title>SQL</title>
-            <g fill="none" fill-rule="evenodd">
-              <ellipse cx="12" cy="6" rx="7" ry="2.2" fill="#e79ab0"/>
-              <path d="M5 6v6c0 1.2 3.13 2.2 7 2.2s7-1 7-2.2V6" fill="#f4b6c2"/>
-              <path d="M5 12v6c0 1.2 3.13 2.2 7 2.2s7-1 7-2.2v-6" fill="#e79ab0" opacity="0.9"/>
-              <ellipse cx="12" cy="18.4" rx="7" ry="1.6" fill="#f4b6c2" />
-            </g>
-          </svg>
-          <span>SQL</span>
-        </div>
-
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI"><span>Power BI</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg"><span>Python</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg"><span>Pandas</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg"><span>NumPy</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg"><span>SQL</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg"><span>Power BI</span></div>
       </div>
     </section>
 
-    <!-- CHARLAS: subida y preview -->
     <section id="charlas">
       <h2>Charlas & Vídeos</h2>
-      <p>Aquí puedes subir tus presentaciones (PDF/PPT/Imágenes). Si subes un PDF verás la portada en vista previa.</p>
-
       <div class="charlas-grid">
         <div class="charla-card">
-          <div class="charla-img">📎</div>
-          <div class="charla-content">
-            <h4>Subir presentación / charla</h4>
-            <p>Soportado: .pdf, .ppt, .pptx, .jpg, .png. (PDF se muestra en preview)</p>
-
-            <div class="charla-upload">
-              <label for="fileCharla">Seleccionar archivo</label>
-              <input id="fileCharla" type="file" accept=".pdf,.ppt,.pptx,.jpg,.jpeg,.png" />
-            </div>
-
-            <div id="previewArea" class="preview-wrapper" style="display:none;">
-              <div class="preview-toolbar">
-                <strong id="previewName" style="font-size:.95rem;color:var(--texto)"></strong>
-                <div style="flex:1"></div>
-                <button id="closePreview" style="background:none;border:0;color:var(--rosa-intenso);cursor:pointer;font-weight:600">Cerrar</button>
-              </div>
-              <div id="previewContent" style="padding:.6rem;"></div>
-            </div>
-
-          </div>
+          <h4>Charla: Ciencia detrás de todo (2024)</h4>
+          <p>Descarga o visualiza la presentación.</p>
+          <a href="charla1.pdf" target="_blank">📄 Ver PDF</a>
         </div>
-      </div>
-    </section>
-
-    <section id="proyectos">
-      <h2>Proyectos</h2>
-      <div class="proyectos">
-        <div class="proyecto"><h3>NASA Space Apps 2024</h3><p><em>Solstice — Zephir-O</em>, enfocado en simulaciones atmosféricas y visualización de datos climáticos.</p></div>
-        <div class="proyecto"><h3>NASA Space Apps 2025</h3><p><em>ASTRALIS BU</em>, simulador educativo sobre impacto de asteroides usando datasets de NASA.</p></div>
-        <div class="proyecto"><h3>VOTI</h3><p>Plataforma de visualización interactiva para datos públicos y sociales en Perú.</p></div>
       </div>
     </section>
 
     <section id="trayectoria">
       <h2>Trayectoria</h2>
       <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-title">Presidenta del Capítulo Estudiantil IEEE CIS UNMSM</div>
-            <div class="timeline-desc">Coordino un equipo multidisciplinario orientado al desarrollo tecnológico y la inclusión estudiantil en la comunidad IEEE.</div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-title">Chief Partnership Officer (CPO) — Datea+</div>
-            <div class="timeline-desc">Encargada de liderar la estrategia de alianzas, impulsando colaboraciones con organizaciones públicas, privadas y comunitarias.</div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2024-25</div>
-            <div class="timeline-title">Asistente de Contabilidad — SV ARQUEÓLOGOS E.I.R.L.</div>
-            <div class="timeline-desc">Apoyé la organización administrativa y contable: clasificación de comprobantes, armado de carpetas y control de archivos para oficina.</div>
-          </div>
-        </div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025</div><div class="timeline-title">Presidenta del Capítulo Estudiantil IEEE CIS UNMSM</div><div class="timeline-desc">Coordino un equipo multidisciplinario orientado al desarrollo tecnológico y la inclusión estudiantil en la comunidad IEEE.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025</div><div class="timeline-title">Chief Partnership Officer (CPO) en Datea+</div><div class="timeline-desc">Encargada de liderar la estrategia de alianzas, impulsando colaboraciones con organizaciones públicas, privadas y comunitarias.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2024–2025</div><div class="timeline-title">Asistente de Contabilidad en SV Arqueólogos</div><div class="timeline-desc">Clasifiqué y organicé documentación contable y administrativa en la empresa de arqueología, asegurando el orden y acceso eficiente a los archivos de oficina.</div></div></div>
       </div>
     </section>
 
@@ -231,8 +328,8 @@
       <h2>Honores & Premios</h2>
       <div class="honores-grid">
         <div class="honor-card"><h4>Nasa Space App Challenge Moquegua — Equipo Finalista</h4><p>ZEPHIR-O Landing Page (2024)</p></div>
-        <div class="honor-card"><h4>Latin Code Week - Equipo Finalista (JA Perú/SAP Perú)</h4><p>Reconocimiento al rendimiento académico. (2023)</p></div>
-        <div class="honor-card"><h4>Women Can Do Perú — Equipo Ganador (Eje de Ciencia)</h4><p>Proyecto biotecnológico con microalgas. (2021)</p></div>
+        <div class="honor-card"><h4>Latin Code Week — Equipo Finalista</h4><p>Reconocimiento al rendimiento académico (2023)</p></div>
+        <div class="honor-card"><h4>Women Can Do Perú — Equipo Ganador (Eje Ciencia)</h4><p>Proyecto biotecnológico con microalgas (2021)</p></div>
       </div>
     </section>
 
@@ -247,75 +344,19 @@
   </main>
 
   <script>
-    // --------- Menu hide on scroll down / show on scroll up ----------
-    (function(){
-      const nav = document.getElementById('site-nav');
-      let lastScroll = 0;
-      const threshold = 10;
-      window.addEventListener('scroll', () => {
-        const st = window.pageYOffset || document.documentElement.scrollTop;
-        if (Math.abs(st - lastScroll) <= threshold) return;
-        if (st > lastScroll && st > 80){
-          nav.classList.add('hidden-nav');
-        } else {
-          nav.classList.remove('hidden-nav');
-        }
-        lastScroll = st <= 0 ? 0 : st;
-      }, {passive:true});
-    })();
+    // Ocultar navbar al hacer scroll hacia abajo
+    let prevScrollPos = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
 
-    // --------- Charla file preview (PDF, images, other) -----------
-    (function(){
-      const input = document.getElementById('fileCharla');
-      const previewArea = document.getElementById('previewArea');
-      const previewContent = document.getElementById('previewContent');
-      const previewName = document.getElementById('previewName');
-      const closeBtn = document.getElementById('closePreview');
-
-      function clearPreview(){
-        previewContent.innerHTML = '';
-        previewName.textContent = '';
-        previewArea.style.display = 'none';
+    window.onscroll = function() {
+      const currentScrollPos = window.pageYOffset;
+      if (prevScrollPos > currentScrollPos) {
+        navbar.style.top = "0";
+      } else {
+        navbar.style.top = "-80px";
       }
-
-      if (closeBtn) closeBtn.addEventListener('click', clearPreview);
-
-      if (input) input.addEventListener('change', (e) => {
-        const f = e.target.files && e.target.files[0];
-        if (!f) { clearPreview(); return; }
-        const name = f.name;
-        const ext = name.split('.').pop().toLowerCase();
-        previewName.textContent = name;
-        previewArea.style.display = 'block';
-        previewContent.innerHTML = ''; // reset
-
-        const url = URL.createObjectURL(f);
-
-        if (ext === 'pdf') {
-          const iframe = document.createElement('iframe');
-          iframe.className = 'preview-iframe';
-          iframe.src = url;
-          previewContent.appendChild(iframe);
-        } else if (['jpg','jpeg','png','gif'].includes(ext)) {
-          const img = document.createElement('img');
-          img.className = 'preview-img';
-          img.src = url;
-          img.alt = name;
-          previewContent.appendChild(img);
-        } else {
-          const info = document.createElement('div');
-          info.style.padding = '.6rem';
-          info.innerHTML = `<p style="margin:0 .0rem .6rem 0;color:#444">No se puede previsualizar directamente este formato en el navegador. Puedes descargarlo o subir un PDF/imagen como portada.</p>`;
-          const a = document.createElement('a');
-          a.href = url; a.download = name; a.textContent = 'Descargar archivo';
-          a.style.display = 'inline-block'; a.style.marginTop = '.4rem'; a.style.color = 'var(--rosa-intenso)'; a.style.fontWeight = '600';
-          info.appendChild(a);
-          previewContent.appendChild(info);
-        }
-
-        setTimeout(()=> URL.revokeObjectURL(url), 20000);
-      });
-    })();
+      prevScrollPos = currentScrollPos;
+    }
   </script>
 </body>
 </html>
