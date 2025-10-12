@@ -3,243 +3,292 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portafolio</title>
+  <title>Lucía Tello | Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      margin: 0;
-      background-color: #fff;
-      color: #333;
-      scroll-behavior: smooth;
+    :root {
+      --rosa-claro: #fdeef4;
+      --rosa-acento: #f4b6c2;
+      --rosa-intenso: #e79ab0;
+      --texto: #333;
+      --blanco: #fff;
     }
-    header {
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--rosa-claro);
+      color: var(--texto);
+    }
+
+    /* NAVBAR */
+    nav {
+      background-color: var(--blanco);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: fixed;
       top: 0;
       width: 100%;
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 50px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       z-index: 1000;
-      transition: top 0.3s;
-    }
-    header nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-    header nav a:hover {
-      color: #e98ea3;
-    }
-    section {
-      padding: 100px 50px 50px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
-      color: #e98ea3;
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2em;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
-      border: 1px solid #eee;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 60px;
-      margin-bottom: 15px;
-    }
-    .trayectoria-linea {
-      position: relative;
-      margin-left: 50px;
-      padding-left: 20px;
-      border-left: 3px solid #e98ea3;
-    }
-    .trayectoria-item {
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .trayectoria-item::before {
-      content: "";
-      position: absolute;
-      left: -32px;
-      top: 0;
-      width: 15px;
-      height: 15px;
-      background: #e98ea3;
-      border-radius: 50%;
-      transform: translateY(0);
-    }
-    .charlas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .charla-card {
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
-    }
-    .charla-card:hover {
-      transform: translateY(-5px);
-    }
-    .charla-card img {
-      width: 100%;
-      display: block;
-    }
-    .charla-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-      color: white;
       display: flex;
       justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-      font-weight: 500;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      transition: top 0.3s;
     }
-    .charla-card:hover .charla-overlay {
-      opacity: 1;
-    }
-    .contacto {
-      text-align: center;
-      padding: 50px;
-      background: #ffeaf0;
-    }
-    .contacto h2 {
-      color: #e98ea3;
-    }
-    .contacto a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      color: #fff;
-      background: #e98ea3;
+
+    nav a {
+      color: var(--texto);
       text-decoration: none;
-      border-radius: 25px;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 0.25rem 0.5rem;
+    }
+    nav a:hover { color: var(--rosa-intenso); }
+
+    main { padding-top: 5.2rem; }
+
+    /* HEADER */
+    header { text-align: center; padding: 3.5rem 2rem 2rem; }
+    header img {
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--rosa-acento);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    header h1 { margin-top: 1rem; color: var(--rosa-intenso); font-size: 2.1rem; }
+    header p { max-width: 760px; margin: 0.6rem auto 0; font-size: 1rem; }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: var(--rosa-intenso);
+      border-bottom: 2px solid var(--rosa-acento);
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .card {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* SKILLS */
+    .skills-container {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      margin-top: 1rem; justify-content: center; align-items: center;
+    }
+
+    .skill-item {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem; transition: transform 0.3s;
+      width: 92px;
+    }
+    .skill-item:hover { transform: translateY(-6px) scale(1.02); }
+    .skill-item img {
+      width: 60px; height: 60px; object-fit: contain;
+      filter: grayscale(1) drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(0.95);
+      transition: all 0.25s;
+    }
+    .skill-item img:hover { filter: grayscale(0) drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1); transform: scale(1.07); }
+    .skill-item span { font-size: 0.85rem; color: var(--rosa-intenso); font-weight: 500; text-align: center; }
+
+    /* PROYECTOS */
+    .proyectos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .proyecto-card {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.25s, box-shadow 0.3s;
+    }
+    .proyecto-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+    .proyecto-card h4 {
+      color: var(--rosa-intenso);
+      margin-bottom: 0.5rem;
+    }
+    .proyecto-card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* TRAYECTORIA */
+    .timeline {
+      position: relative; margin-top: 2rem; padding-left: 40px;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 20px; top: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--rosa-acento), var(--rosa-intenso));
+      border-radius: 4px;
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 2rem;
+    }
+    .timeline-dot {
+      position: absolute; left: 11px; top: 6px;
+      width: 20px; height: 20px;
+      background-color: var(--rosa-intenso);
+      border: 4px solid var(--blanco);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--rosa-acento);
+    }
+    .timeline-content {
+      background-color: var(--blanco);
+      padding: 1rem; border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+      border-left: 4px solid rgba(231,154,176,0.12);
+    }
+
+    /* EXPERIENCIAS, HONORES, CHARLAS */
+    .experiencias-grid, .honores-grid, .charlas-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .experiencia-card, .honor-card, .charla-card {
+      background-color: var(--blanco);
+      border-radius: 12px; padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .experiencia-card:hover, .honor-card:hover, .charla-card:hover {
+      transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+    .charla-preview {
+      width: 100%; height: 180px; object-fit: cover;
+      border-radius: 8px; margin-bottom: 0.8rem;
+    }
+    .charla-card a {
+      display: inline-block; padding: 0.5rem 1rem;
+      background-color: var(--rosa-intenso);
+      color: white; border-radius: 6px;
+      text-decoration: none; font-weight: 500;
       transition: background 0.3s;
     }
-    .contacto a:hover {
-      background: #d96e8c;
-    }
-    @media (max-width: 600px) {
-      header {
-        padding: 10px 20px;
-      }
-      section {
-        padding: 80px 20px 30px;
-      }
-    }
+    .charla-card a:hover { background-color: var(--rosa-acento); }
+
+    /* CONTACTO */
+    #contacto p { text-align: center; font-size: 1rem; margin: 0.6rem 0; }
+    #contacto a { color: var(--rosa-intenso); text-decoration: none; font-weight: 500; }
+    #contacto a:hover { text-decoration: underline; }
+
+    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #666; }
   </style>
 </head>
 <body>
-  <header id="header">
-    <div><strong>Lu Tello</strong></div>
-    <nav>
-      <a href="#trayectoria">Trayectoria</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#charlas">Charlas & Videos</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+  <nav id="navbar">
+    <a href="#inicio">Inicio</a>
+    <a href="#skills">Skills & Tech Stack</a>
+    <a href="#charlas">Charlas & Vídeos</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#trayectoria">Trayectoria</a>
+    <a href="#experiencia">Experiencias</a>
+    <a href="#honores">Honores & Premios</a>
+    <a href="#contacto">Contáctame</a>
+  </nav>
 
-  <section id="trayectoria">
-    <h2>Trayectoria</h2>
-    <div class="trayectoria-linea">
-      <div class="trayectoria-item">
-        <h3>2025 - Presidenta IEEE CIS UNMSM</h3>
-        <p>Lideré el capítulo estudiantil, promoviendo proyectos de IA y organización de eventos académicos.</p>
-      </div>
-      <div class="trayectoria-item">
-        <h3>2024 - Chief Partnership Officer en Datea+</h3>
-        <p>Desarrollé alianzas estratégicas para fortalecer la red de impacto social y tecnológico.</p>
-      </div>
-      <div class="trayectoria-item">
-        <h3>2023 - Asistente Contable en empresa de arqueología</h3>
-        <p>Organización y clasificación documental para oficinas contables.</p>
-      </div>
-    </div>
-  </section>
+  <main>
+    <header id="inicio">
+      <img src="lu.png" alt="Foto de Lucía Tello">
+      <h1>Lucía Tello</h1>
+      <p>Estudiante de Computación Científica en la UNMSM, apasionada por la programación, el análisis de datos y el impacto social de la innovación.</p>
+    </header>
 
-  <section id="proyectos">
-    <h2>Proyectos</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-        <h3>Proyecto Python</h3>
-        <p>Desarrollo de scripts automatizados para análisis de datos arqueológicos.</p>
+    <section id="skills">
+      <h2>Skills & Tech Stack</h2>
+      <div class="skills-container">
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg"><span>Python</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg"><span>Pandas</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg"><span>NumPy</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg"><span>Power BI</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg"><span>SQL</span></div>
       </div>
-      <div class="card">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
-        <h3>Proyecto Web</h3>
-        <p>Sitio web interactivo para difusión científica y académica.</p>
-      </div>
-      <div class="card">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" alt="SQL" style="filter: grayscale(100%);" />
-        <h3>Base de Datos</h3>
-        <p>Diseño de base de datos estructurada para gestión de registros.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="charlas">
-    <h2>Charlas & Videos</h2>
-    <div class="charlas-grid">
-      <div class="charla-card">
-        <img src="https://placehold.co/600x350/ffb6c1/000?text=Charla+1" alt="Charla 1">
-        <a href="docs/charla1.pdf" target="_blank" class="charla-overlay">Ver presentación</a>
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <div class="proyectos-grid">
+        <div class="proyecto-card">
+          <h4>Data Explorer</h4>
+          <p>Dashboard interactivo para analizar datasets en tiempo real con visualizaciones dinámicas.</p>
+        </div>
+        <div class="proyecto-card">
+          <h4>EcoTrack</h4>
+          <p>Aplicación para medir hábitos sostenibles y calcular la huella de carbono de los usuarios.</p>
+        </div>
+        <div class="proyecto-card">
+          <h4>EduTech Insights</h4>
+          <p>Plataforma que analiza datos educativos para mejorar la experiencia de aprendizaje.</p>
+        </div>
       </div>
-      <div class="charla-card">
-        <img src="https://placehold.co/600x350/f8c8dc/000?text=Charla+2" alt="Charla 2">
-        <a href="docs/charla2.pdf" target="_blank" class="charla-overlay">Ver presentación</a>
-      </div>
-      <div class="charla-card">
-        <img src="https://placehold.co/600x350/fddde6/000?text=Charla+3" alt="Charla 3">
-        <a href="docs/charla3.pdf" target="_blank" class="charla-overlay">Ver presentación</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contacto" class="contacto">
-    <h2>Contacto</h2>
-    <p>Puedes encontrarme en mis redes o escribirme directamente 💌</p>
-    <a href="mailto:correo@ejemplo.com">Correo</a>
-    <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-    <a href="https://github.com/" target="_blank">GitHub</a>
-  </section>
+    <section id="trayectoria">
+      <h2>Trayectoria</h2>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025</div><div class="timeline-title">Presidenta del Capítulo IEEE CIS UNMSM</div><div class="timeline-desc">Coordino un equipo interdisciplinario para fomentar innovación y liderazgo estudiantil.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025</div><div class="timeline-title">Chief Partnership Officer (CPO) — Datea+</div><div class="timeline-desc">Lidero la estrategia de alianzas con organizaciones públicas y privadas.</div></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2024–2025</div><div class="timeline-title">Asistente de Contabilidad — SV Arqueólogos</div><div class="timeline-desc">Organización de documentos contables y soporte administrativo.</div></div></div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <h2>Experiencias & Conferencias</h2>
+      <div class="experiencias-grid">
+        <div class="experiencia-card"><h4>Ponente — Eventos estudiantiles</h4><p>Charlas sobre programación y datos.</p></div>
+        <div class="experiencia-card"><h4>Panelista — Foros educativos</h4><p>Foros sobre educación y sostenibilidad.</p></div>
+      </div>
+    </section>
+
+    <section id="honores">
+      <h2>Honores & Premios</h2>
+      <div class="honores-grid">
+        <div class="honor-card"><h4>Nasa Space App Challenge Moquegua — Finalista</h4><p>ZEPHIR-O Landing Page (2024)</p></div>
+        <div class="honor-card"><h4>Latin Code Week — Finalista (JA Perú/SAP Perú)</h4><p>Reconocimiento al rendimiento académico (2023)</p></div>
+        <div class="honor-card"><h4>Women Can Do Perú — Equipo Ganador (Eje Ciencia)</h4><p>Proyecto biotecnológico con microalgas (2021)</p></div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>📧 <a href="mailto:luciagiullianatelloleon@gmail.com">luciagiullianatelloleon@gmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/lucia-giulliana-tello-le%C3%B3n-b8288120b/" target="_blank">LinkedIn</a> |
+         <a href="https://www.instagram.com/luciatelle18/" target="_blank">Instagram</a></p>
+    </section>
+
+    <footer>© 2025 Lucía Tello — Hecho con 💗 y curiosidad.</footer>
+  </main>
 
   <script>
-    let lastScroll = 0;
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > lastScroll) {
-        header.style.top = "-80px";
-      } else {
-        header.style.top = "0";
-      }
-      lastScroll = currentScroll;
-    });
+    // Navbar oculta al hacer scroll
+    let prevScroll = window.pageYOffset;
+    const navbar = document.getElementById("navbar");
+    window.onscroll = function() {
+      let currentScroll = window.pageYOffset;
+      navbar.style.top = (prevScroll > currentScroll) ? "0" : "-70px";
+      prevScroll = currentScroll;
+    }
   </script>
 </body>
 </html>
+
