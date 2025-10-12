@@ -35,7 +35,8 @@
       justify-content: center;
       gap: 1rem;
       padding: 0.9rem 1rem;
-      transition: top 0.3s;
+      flex-wrap: wrap;
+      transition: top 0.4s ease;
     }
 
     nav a {
@@ -45,21 +46,36 @@
       transition: color 0.3s;
       padding: 0.25rem 0.5rem;
     }
-    nav a:hover { color: var(--rosa-intenso); }
 
+    nav a:hover { color: var(--rosa-intenso); }
     main { padding-top: 5.2rem; }
 
     /* HEADER */
-    header { text-align: center; padding: 3.5rem 2rem 2rem; }
+    header {
+      text-align: center;
+      padding: 3.5rem 2rem 2rem;
+    }
+
     header img {
-      width: 150px; height: 150px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid var(--rosa-acento);
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    header h1 { margin-top: 1rem; color: var(--rosa-intenso); font-size: 2.1rem; }
-    header p { max-width: 760px; margin: 0.6rem auto 0; font-size: 1rem; }
+
+    header h1 {
+      margin-top: 1rem;
+      color: var(--rosa-intenso);
+      font-size: 2.1rem;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0.6rem auto 0;
+      font-size: 1rem;
+    }
 
     section {
       padding: 3rem 1.5rem;
@@ -81,118 +97,188 @@
       padding: 1.2rem;
       margin-bottom: 1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     }
 
     /* SKILLS */
     .skills-container {
-      display: flex; flex-wrap: wrap; gap: 1.5rem;
-      margin-top: 1rem; justify-content: center; align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+      align-items: center;
     }
 
     .skill-item {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 0.5rem; transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
       width: 92px;
     }
+
     .skill-item:hover { transform: translateY(-6px) scale(1.02); }
+
     .skill-item img {
-      width: 60px; height: 60px; object-fit: contain;
-      filter: grayscale(1) drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(0.95);
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(0.95);
       transition: all 0.25s;
     }
-    .skill-item img:hover { filter: grayscale(0) drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1); transform: scale(1.07); }
-    .skill-item span { font-size: 0.85rem; color: var(--rosa-intenso); font-weight: 500; text-align: center; }
 
-    /* PROYECTOS */
-    .proyectos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+    .skill-item img:hover {
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1);
+      transform: scale(1.07);
     }
-    .proyecto-card {
-      background-color: var(--blanco);
-      border-radius: 12px;
-      padding: 1.2rem;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.25s, box-shadow 0.3s;
-    }
-    .proyecto-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-    }
-    .proyecto-card h4 {
+
+    .skill-item span {
+      font-size: 0.85rem;
       color: var(--rosa-intenso);
-      margin-bottom: 0.5rem;
-    }
-    .proyecto-card p {
-      font-size: 0.95rem;
-      color: #444;
+      font-weight: 500;
+      text-align: center;
     }
 
     /* TRAYECTORIA */
     .timeline {
-      position: relative; margin-top: 2rem; padding-left: 40px;
+      position: relative;
+      margin-top: 2rem;
+      padding-left: 30px;
     }
+
     .timeline::before {
-      content: ''; position: absolute; left: 20px; top: 0;
-      width: 4px; height: 100%;
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 0;
+      width: 4px;
+      height: 100%;
       background: linear-gradient(180deg, var(--rosa-acento), var(--rosa-intenso));
       border-radius: 4px;
     }
+
     .timeline-item {
-      position: relative; margin-bottom: 2rem;
+      position: relative;
+      margin-bottom: 2rem;
     }
+
     .timeline-dot {
-      position: absolute; left: 11px; top: 6px;
-      width: 20px; height: 20px;
+      position: absolute;
+      left: 13px;
+      top: 8px;
+      width: 22px;
+      height: 22px;
       background-color: var(--rosa-intenso);
       border: 4px solid var(--blanco);
       border-radius: 50%;
       box-shadow: 0 0 0 3px var(--rosa-acento);
     }
+
     .timeline-content {
       background-color: var(--blanco);
-      padding: 1rem; border-radius: 12px;
+      padding: 1rem;
+      border-radius: 12px;
       box-shadow: 0 6px 14px rgba(0,0,0,0.06);
       border-left: 4px solid rgba(231,154,176,0.12);
+      transition: transform 0.15s;
+      position: relative;
     }
 
-    /* EXPERIENCIAS, HONORES, CHARLAS */
-    .experiencias-grid, .honores-grid, .charlas-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem; margin-top: 1rem;
+    .timeline-content:hover { transform: translateY(-4px); }
+    .timeline-year { color: var(--rosa-intenso); font-weight: 700; font-size: 0.98rem; }
+    .timeline-title { color: var(--texto); font-weight: 600; font-size: 1.02rem; margin-bottom: 0.25rem; }
+    .timeline-desc { color: #555; font-size: 0.92rem; }
+
+    /* GRID SECTIONS */
+    .proyectos, .experiencias-grid, .honores-grid, .charlas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
-    .experiencia-card, .honor-card, .charla-card {
+
+    .proyecto, .experiencia-card, .honor-card, .charla-card {
       background-color: var(--blanco);
-      border-radius: 12px; padding: 1rem;
+      border-radius: 12px;
+      padding: 1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.3s;
-      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
     }
-    .experiencia-card:hover, .honor-card:hover, .charla-card:hover {
-      transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+
+    .proyecto:hover, .experiencia-card:hover, .honor-card:hover, .charla-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
+
+    .proyecto h3, .experiencia-card h4, .honor-card h4, .charla-card h4 {
+      color: var(--rosa-intenso);
+      margin: 0 0 0.4rem 0;
+      font-size: 1.05rem;
+    }
+
     .charla-preview {
-      width: 100%; height: 180px; object-fit: cover;
-      border-radius: 8px; margin-bottom: 0.8rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid var(--rosa-acento);
+      height: 160px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .charla-card a {
-      display: inline-block; padding: 0.5rem 1rem;
-      background-color: var(--rosa-intenso);
-      color: white; border-radius: 6px;
-      text-decoration: none; font-weight: 500;
-      transition: background 0.3s;
+
+    .charla-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      transition: opacity 0.3s;
     }
-    .charla-card a:hover { background-color: var(--rosa-acento); }
+
+    .charla-preview:hover img { opacity: 0.7; }
+
+    .charla-preview span {
+      position: absolute;
+      color: var(--rosa-intenso);
+      font-weight: 600;
+      background: rgba(255,255,255,0.9);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .charla-preview:hover span { opacity: 1; }
 
     /* CONTACTO */
-    #contacto p { text-align: center; font-size: 1rem; margin: 0.6rem 0; }
-    #contacto a { color: var(--rosa-intenso); text-decoration: none; font-weight: 500; }
+    #contacto p {
+      text-align: center;
+      font-size: 1rem;
+      margin: 0.6rem 0;
+    }
+    #contacto a {
+      color: var(--rosa-intenso);
+      text-decoration: none;
+      font-weight: 500;
+    }
     #contacto a:hover { text-decoration: underline; }
 
-    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #666; }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
@@ -221,24 +307,33 @@
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg"><span>Pandas</span></div>
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg"><span>NumPy</span></div>
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg"><span>Power BI</span></div>
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg"><span>SQL</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" style="filter: grayscale(1);"><span>SQL</span></div>
       </div>
     </section>
 
-    <section id="proyectos">
-      <h2>Proyectos</h2>
-      <div class="proyectos-grid">
-        <div class="proyecto-card">
-          <h4>Data Explorer</h4>
-          <p>Dashboard interactivo para analizar datasets en tiempo real con visualizaciones dinámicas.</p>
+    <section id="charlas">
+      <h2>Charlas & Vídeos</h2>
+      <div class="charlas-grid">
+        <div class="charla-card">
+          <h4>Data Science 101</h4>
+          <a href="placeholder1.pdf" target="_blank" class="charla-preview">
+            <img src="https://i.ibb.co/mvV7V7y/pdf-preview1.png" alt="Preview charla 1">
+            <span>Ver presentación</span>
+          </a>
         </div>
-        <div class="proyecto-card">
-          <h4>EcoTrack</h4>
-          <p>Aplicación para medir hábitos sostenibles y calcular la huella de carbono de los usuarios.</p>
+        <div class="charla-card">
+          <h4>Inteligencia Artificial Ética</h4>
+          <a href="placeholder2.pdf" target="_blank" class="charla-preview">
+            <img src="https://i.ibb.co/G92zVzV/pdf-preview2.png" alt="Preview charla 2">
+            <span>Ver presentación</span>
+          </a>
         </div>
-        <div class="proyecto-card">
-          <h4>EduTech Insights</h4>
-          <p>Plataforma que analiza datos educativos para mejorar la experiencia de aprendizaje.</p>
+        <div class="charla-card">
+          <h4>Mujeres en STEM</h4>
+          <a href="placeholder3.pdf" target="_blank" class="charla-preview">
+            <img src="https://i.ibb.co/QvKjtbz/pdf-preview3.png" alt="Preview charla 3">
+            <span>Ver presentación</span>
+          </a>
         </div>
       </div>
     </section>
@@ -246,16 +341,37 @@
     <section id="trayectoria">
       <h2>Trayectoria</h2>
       <div class="timeline">
-        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025</div><div class="timeline-title">Presidenta del Capítulo IEEE CIS UNMSM</div><div class="timeline-desc">Coordino un equipo interdisciplinario para fomentar innovación y liderazgo estudiantil.</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025</div><div class="timeline-title">Chief Partnership Officer (CPO) — Datea+</div><div class="timeline-desc">Lidero la estrategia de alianzas con organizaciones públicas y privadas.</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2024–2025</div><div class="timeline-title">Asistente de Contabilidad — SV Arqueólogos</div><div class="timeline-desc">Organización de documentos contables y soporte administrativo.</div></div></div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">Presidenta IEEE CIS UNMSM</div>
+            <div class="timeline-desc">Coordino un equipo multidisciplinario orientado al desarrollo tecnológico y la inclusión estudiantil.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">Chief Partnership Officer en Datea+</div>
+            <div class="timeline-desc">Lideré la estrategia de alianzas y colaboraciones con organizaciones públicas, privadas y comunitarias.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2024–2025</div>
+            <div class="timeline-title">Asistente de Contabilidad – SV Arqueólogos</div>
+            <div class="timeline-desc">Organicé carpetas y clasifiqué documentación contable para las oficinas administrativas.</div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="experiencia">
       <h2>Experiencias & Conferencias</h2>
       <div class="experiencias-grid">
-        <div class="experiencia-card"><h4>Ponente — Eventos estudiantiles</h4><p>Charlas sobre programación y datos.</p></div>
+        <div class="experiencia-card"><h4>Ponente — Eventos estudiantiles</h4><p>Charlas de programación y datos.</p></div>
         <div class="experiencia-card"><h4>Panelista — Foros educativos</h4><p>Foros sobre educación y sostenibilidad.</p></div>
       </div>
     </section>
@@ -263,9 +379,9 @@
     <section id="honores">
       <h2>Honores & Premios</h2>
       <div class="honores-grid">
-        <div class="honor-card"><h4>Nasa Space App Challenge Moquegua — Finalista</h4><p>ZEPHIR-O Landing Page (2024)</p></div>
-        <div class="honor-card"><h4>Latin Code Week — Finalista (JA Perú/SAP Perú)</h4><p>Reconocimiento al rendimiento académico (2023)</p></div>
-        <div class="honor-card"><h4>Women Can Do Perú — Equipo Ganador (Eje Ciencia)</h4><p>Proyecto biotecnológico con microalgas (2021)</p></div>
+        <div class="honor-card"><h4>Nasa Space App Challenge Moquegua — Equipo Finalista</h4><p>ZEPHIR-O Landing Page (2024)</p></div>
+        <div class="honor-card"><h4>Latin Code Week - Equipo Finalista (JA Perú/SAP Perú)</h4><p>Reconocimiento al rendimiento académico (2023).</p></div>
+        <div class="honor-card"><h4>Women Can Do Perú — Equipo Ganador (Eje de Ciencia)</h4><p>Proyecto biotecnológico con microalgas (2021).</p></div>
       </div>
     </section>
 
@@ -280,13 +396,12 @@
   </main>
 
   <script>
-    // Navbar oculta al hacer scroll
-    let prevScroll = window.pageYOffset;
-    const navbar = document.getElementById("navbar");
+    // Navbar oculto al hacer scroll
+    let prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
-      let currentScroll = window.pageYOffset;
-      navbar.style.top = (prevScroll > currentScroll) ? "0" : "-70px";
-      prevScroll = currentScroll;
+      let currentScrollPos = window.pageYOffset;
+      document.getElementById("navbar").style.top = (prevScrollpos > currentScrollPos) ? "0" : "-80px";
+      prevScrollpos = currentScrollPos;
     }
   </script>
 </body>
