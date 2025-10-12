@@ -3,114 +3,407 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lu Tello - Portafolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="lu.png" />
+  <title>Lucía Tello | Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rosa-claro: #fdeef4;
+      --rosa-acento: #f4b6c2;
+      --rosa-intenso: #e79ab0;
+      --texto: #333;
+      --blanco: #fff;
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--rosa-claro);
+      color: var(--texto);
+    }
+
+    /* NAVBAR */
+    nav {
+      background-color: var(--blanco);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      flex-wrap: wrap;
+      transition: top 0.4s ease;
+    }
+
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 0.25rem 0.5rem;
+    }
+
+    nav a:hover { color: var(--rosa-intenso); }
+    main { padding-top: 5.2rem; }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--rosa-acento);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin-top: 1rem;
+      color: var(--rosa-intenso);
+      font-size: 2.1rem;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0.6rem auto 0;
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: var(--rosa-intenso);
+      border-bottom: 2px solid var(--rosa-acento);
+      display: inline-block;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .card {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+
+    /* SKILLS */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
+      width: 92px;
+    }
+
+    .skill-item:hover { transform: translateY(-6px) scale(1.02); }
+
+    .skill-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(0.95);
+      transition: all 0.25s;
+    }
+
+    .skill-item img:hover {
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1);
+      transform: scale(1.07);
+    }
+
+    .skill-item span {
+      font-size: 0.85rem;
+      color: var(--rosa-intenso);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* TRAYECTORIA */
+    .timeline {
+      position: relative;
+      margin-top: 2rem;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--rosa-acento), var(--rosa-intenso));
+      border-radius: 4px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 13px;
+      top: 8px;
+      width: 22px;
+      height: 22px;
+      background-color: var(--rosa-intenso);
+      border: 4px solid var(--blanco);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--rosa-acento);
+    }
+
+    .timeline-content {
+      background-color: var(--blanco);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+      border-left: 4px solid rgba(231,154,176,0.12);
+      transition: transform 0.15s;
+      position: relative;
+    }
+
+    .timeline-content:hover { transform: translateY(-4px); }
+    .timeline-year { color: var(--rosa-intenso); font-weight: 700; font-size: 0.98rem; }
+    .timeline-title { color: var(--texto); font-weight: 600; font-size: 1.02rem; margin-bottom: 0.25rem; }
+    .timeline-desc { color: #555; font-size: 0.92rem; }
+
+    /* GRID SECTIONS */
+    .proyectos, .experiencias-grid, .honores-grid, .charlas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .proyecto, .experiencia-card, .honor-card, .charla-card {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .proyecto:hover, .experiencia-card:hover, .honor-card:hover, .charla-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .proyecto h3, .experiencia-card h4, .honor-card h4, .charla-card h4 {
+      color: var(--rosa-intenso);
+      margin: 0 0 0.4rem 0;
+      font-size: 1.05rem;
+    }
+
+    .charla-preview {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid var(--rosa-acento);
+      height: 160px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .charla-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .charla-preview:hover img { opacity: 0.7; }
+
+    .charla-preview span {
+      position: absolute;
+      color: var(--rosa-intenso);
+      font-weight: 600;
+      background: rgba(255,255,255,0.9);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .charla-preview:hover span { opacity: 1; }
+
+    /* CONTACTO */
+    #contacto p {
+      text-align: center;
+      font-size: 1rem;
+      margin: 0.6rem 0;
+    }
+    #contacto a {
+      color: var(--rosa-intenso);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    #contacto a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body>
+  <nav id="navbar">
+    <a href="#inicio">Inicio</a>
+    <a href="#skills">Skills & Tech Stack</a>
+    <a href="#charlas">Charlas & Vídeos</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#trayectoria">Trayectoria</a>
+    <a href="#experiencia">Experiencias</a>
+    <a href="#honores">Honores & Premios</a>
+    <a href="#contacto">Contáctame</a>
+  </nav>
 
-  <!-- Encabezado -->
-  <header class="text-center py-10">
-    <img src="lu.png" alt="Logo personal" class="w-28 mx-auto mb-4 rounded-full shadow-lg">
-    <h1 class="text-4xl font-bold text-pink-500 mb-2">Lu Tello</h1>
-    <p class="text-gray-600 text-lg">Apasionada por la tecnología, la ciencia y el impacto social</p>
-  </header>
+  <main>
+    <header id="inicio">
+      <img src="lu.png" alt="Foto de Lucía Tello">
+      <h1>Lucía Tello</h1>
+      <p>Estudiante de Computación Científica en la UNMSM, apasionada por la programación, el análisis de datos y el impacto social de la innovación.</p>
+    </header>
 
-  <!-- Trayectoria -->
-  <section id="trayectoria" class="py-16 bg-pink-50">
-    <h2 class="text-3xl font-bold text-center text-pink-600 mb-12">Trayectoria</h2>
-    <div class="relative max-w-3xl mx-auto">
-      <!-- Línea vertical -->
-      <div class="absolute left-1/2 transform -translate-x-1/2 bg-pink-300 w-1 h-full"></div>
+    <section id="skills">
+      <h2>Skills & Tech Stack</h2>
+      <div class="skills-container">
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg"><span>Python</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg"><span>Pandas</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg"><span>NumPy</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg"><span>Power BI</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" style="filter: grayscale(1);"><span>SQL</span></div>
+      </div>
+    </section>
 
-      <!-- Ítem 1 -->
-      <div class="mb-12 relative">
-        <div class="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 bg-pink-500 w-4 h-4 rounded-full border-4 border-white shadow"></div>
-        <div class="bg-white shadow-lg rounded-2xl p-6 w-5/6 mx-auto md:w-2/3">
-          <h3 class="text-xl font-semibold text-pink-600">Presidenta - IEEE CIS UNMSM</h3>
-          <p class="text-gray-600 text-sm mb-2">2024 - Actualidad</p>
-          <p class="text-gray-700">Lideré el capítulo IEEE CIS UNMSM, promoviendo proyectos de inteligencia artificial, liderazgo estudiantil y divulgación científica para jóvenes.</p>
+    <section id="charlas">
+      <h2>Charlas & Vídeos</h2>
+      <div class="charlas-grid">
+        <div class="charla-card">
+          <h4>Data Science 101</h4>
+          <a href="placeholder1.pdf" target="_blank" class="charla-preview">
+            <img src="https://i.ibb.co/mvV7V7y/pdf-preview1.png" alt="Preview charla 1">
+            <span>Ver presentación</span>
+          </a>
+        </div>
+        <div class="charla-card">
+          <h4>Inteligencia Artificial Ética</h4>
+          <a href="placeholder2.pdf" target="_blank" class="charla-preview">
+            <img src="https://i.ibb.co/G92zVzV/pdf-preview2.png" alt="Preview charla 2">
+            <span>Ver presentación</span>
+          </a>
+        </div>
+        <div class="charla-card">
+          <h4>Mujeres en STEM</h4>
+          <a href="placeholder3.pdf" target="_blank" class="charla-preview">
+            <img src="https://i.ibb.co/QvKjtbz/pdf-preview3.png" alt="Preview charla 3">
+            <span>Ver presentación</span>
+          </a>
         </div>
       </div>
+    </section>
 
-      <!-- Ítem 2 -->
-      <div class="mb-12 relative">
-        <div class="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 bg-pink-500 w-4 h-4 rounded-full border-4 border-white shadow"></div>
-        <div class="bg-white shadow-lg rounded-2xl p-6 w-5/6 mx-auto md:w-2/3">
-          <h3 class="text-xl font-semibold text-pink-600">Chief Partnership Officer - Datea+</h3>
-          <p class="text-gray-600 text-sm mb-2">2024</p>
-          <p class="text-gray-700">Lideré la gestión de alianzas estratégicas en Datea+, conectando la plataforma con organizaciones y comunidades para potenciar su impacto social y tecnológico.</p>
+    <section id="trayectoria">
+      <h2>Trayectoria</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">Presidenta IEEE CIS UNMSM</div>
+            <div class="timeline-desc">Coordino un equipo multidisciplinario orientado al desarrollo tecnológico y la inclusión estudiantil.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">Chief Partnership Officer en Datea+</div>
+            <div class="timeline-desc">Lideré la estrategia de alianzas y colaboraciones con organizaciones públicas, privadas y comunitarias.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2024–2025</div>
+            <div class="timeline-title">Asistente de Contabilidad – SV Arqueólogos</div>
+            <div class="timeline-desc">Organicé carpetas y clasifiqué documentación contable para las oficinas administrativas.</div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Ítem 3 -->
-      <div class="mb-12 relative">
-        <div class="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 bg-pink-500 w-4 h-4 rounded-full border-4 border-white shadow"></div>
-        <div class="bg-white shadow-lg rounded-2xl p-6 w-5/6 mx-auto md:w-2/3">
-          <h3 class="text-xl font-semibold text-pink-600">Asistente de Contabilidad - Empresa de Arqueología</h3>
-          <p class="text-gray-600 text-sm mb-2">2022</p>
-          <p class="text-gray-700">Apoyé en la organización contable y administrativa mediante la clasificación de documentos, armado de carpetas y control de archivos físicos para las oficinas.</p>
-        </div>
+    <section id="experiencia">
+      <h2>Experiencias & Conferencias</h2>
+      <div class="experiencias-grid">
+        <div class="experiencia-card"><h4>Ponente — Eventos estudiantiles</h4><p>Charlas de programación y datos.</p></div>
+        <div class="experiencia-card"><h4>Panelista — Foros educativos</h4><p>Foros sobre educación y sostenibilidad.</p></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Experiencias -->
-  <section id="experiencias" class="py-16 bg-white">
-    <h2 class="text-3xl font-bold text-center text-pink-600 mb-12">Experiencias</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6">
-      <div class="bg-pink-50 shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-pink-600 mb-2">Proyectos STEM</h3>
-        <p class="text-gray-700">Desarrollo de proyectos de divulgación científica y tecnología educativa para niñas y jóvenes.</p>
+    <section id="honores">
+      <h2>Honores & Premios</h2>
+      <div class="honores-grid">
+        <div class="honor-card"><h4>Nasa Space App Challenge Moquegua — Equipo Finalista</h4><p>ZEPHIR-O Landing Page (2024)</p></div>
+        <div class="honor-card"><h4>Latin Code Week - Equipo Finalista (JA Perú/SAP Perú)</h4><p>Reconocimiento al rendimiento académico (2023).</p></div>
+        <div class="honor-card"><h4>Women Can Do Perú — Equipo Ganador (Eje de Ciencia)</h4><p>Proyecto biotecnológico con microalgas (2021).</p></div>
       </div>
-      <div class="bg-pink-50 shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-pink-600 mb-2">Gestión de Equipos</h3>
-        <p class="text-gray-700">Coordinación de equipos interdisciplinarios en actividades académicas, científicas y sociales.</p>
-      </div>
-      <div class="bg-pink-50 shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-pink-600 mb-2">Comunicación Científica</h3>
-        <p class="text-gray-700">Diseño de materiales visuales y charlas de divulgación en temas de IA, ciencia y sociedad.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Honores y Premios -->
-  <section id="honores" class="py-16 bg-pink-50">
-    <h2 class="text-3xl font-bold text-center text-pink-600 mb-12">Honores & Premios</h2>
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto px-6">
-      <div class="bg-white shadow-md rounded-2xl p-6">
-        <h3 class="text-lg font-semibold text-pink-600">Reconocimiento IEEE Perú</h3>
-        <p class="text-gray-700">Premio a la excelencia en liderazgo estudiantil y contribución a la comunidad científica universitaria.</p>
-      </div>
-      <div class="bg-white shadow-md rounded-2xl p-6">
-        <h3 class="text-lg font-semibold text-pink-600">Distinción en Innovación Social</h3>
-        <p class="text-gray-700">Reconocida por promover proyectos tecnológicos con enfoque humano y de impacto social.</p>
-      </div>
-    </div>
-  </section>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>📧 <a href="mailto:luciagiullianatelloleon@gmail.com">luciagiullianatelloleon@gmail.com</a></p>
+      <p><a href="https://www.linkedin.com/in/lucia-giulliana-tello-le%C3%B3n-b8288120b/" target="_blank">LinkedIn</a> |
+         <a href="https://www.instagram.com/luciatelle18/" target="_blank">Instagram</a></p>
+    </section>
 
-  <!-- Habilidades -->
-  <section id="habilidades" class="py-16 bg-white">
-    <h2 class="text-3xl font-bold text-center text-pink-600 mb-12">Habilidades</h2>
-    <div class="flex flex-wrap justify-center gap-10">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-12 h-12 grayscale hover:grayscale-0 transition">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-12 h-12 grayscale hover:grayscale-0 transition">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-12 h-12 grayscale hover:grayscale-0 transition">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-12 h-12 grayscale hover:grayscale-0 transition">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg" alt="MySQL" class="w-12 h-12 grayscale hover:grayscale-0 transition">
-    </div>
-  </section>
+    <footer>© 2025 Lucía Tello — Hecho con 💗 y curiosidad.</footer>
+  </main>
 
-  <!-- Contacto -->
-  <section id="contacto" class="py-16 bg-pink-100 text-center">
-    <h2 class="text-3xl font-bold text-pink-600 mb-6">Contacto</h2>
-    <p class="text-gray-700 mb-4">¿Quieres colaborar o saber más?</p>
-    <p class="text-pink-700 font-semibold">📧 lu.tello@example.com</p>
-    <p class="text-pink-700 font-semibold">💼 linkedin.com/in/lutello</p>
-  </section>
-
-  <footer class="text-center py-4 text-gray-500 text-sm">
-    © 2025 Lu Tello | Diseñado con 💗 y TailwindCSS
-  </footer>
+  <script>
+    // Navbar oculto al hacer scroll
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      let currentScrollPos = window.pageYOffset;
+      document.getElementById("navbar").style.top = (prevScrollpos > currentScrollPos) ? "0" : "-80px";
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
 </body>
 </html>
+
