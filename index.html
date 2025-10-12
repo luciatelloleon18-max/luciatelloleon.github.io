@@ -36,8 +36,9 @@
       z-index: 1000;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -45,16 +46,21 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
+      padding: 0.25rem 0.5rem;
     }
 
     nav a:hover {
       color: var(--rosa-intenso);
     }
 
+    main {
+      padding-top: 5.2rem; /* espacio para navbar */
+    }
+
     /* HEADER */
     header {
       text-align: center;
-      padding: 8rem 2rem 4rem;
+      padding: 3.5rem 2rem 2rem;
     }
 
     header img {
@@ -69,17 +75,17 @@
     header h1 {
       margin-top: 1rem;
       color: var(--rosa-intenso);
-      font-size: 2.3rem;
+      font-size: 2.1rem;
     }
 
     header p {
-      max-width: 700px;
-      margin: 0 auto;
+      max-width: 760px;
+      margin: 0.6rem auto 0;
       font-size: 1rem;
     }
 
     section {
-      padding: 4rem 2rem;
+      padding: 3rem 1.5rem;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -88,22 +94,22 @@
       color: var(--rosa-intenso);
       border-bottom: 2px solid var(--rosa-acento);
       display: inline-block;
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
     }
 
     .card {
       background-color: var(--blanco);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: transform 0.2s, box-shadow 0.3s;
     }
 
     .card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     }
 
     /* SKILLS */
@@ -111,7 +117,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       justify-content: center;
       align-items: center;
     }
@@ -122,23 +128,24 @@
       align-items: center;
       gap: 0.5rem;
       transition: transform 0.3s;
+      width: 92px;
     }
 
     .skill-item:hover {
-      transform: scale(1.1);
+      transform: translateY(-6px) scale(1.02);
     }
 
     .skill-item img {
       width: 60px;
       height: 60px;
       object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(0.9);
-      transition: all 0.3s;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(0.95);
+      transition: all 0.25s;
     }
 
     .skill-item img:hover {
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)) brightness(1);
-      transform: scale(1.1);
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1);
+      transform: scale(1.07);
     }
 
     .skill-item span {
@@ -148,105 +155,147 @@
       text-align: center;
     }
 
-    /* TRAYECTORIA */
+    /* TRAYECTORIA (timeline estilo) */
     .timeline {
       position: relative;
-      margin-top: 2rem;
-      padding-left: 40px;
+      margin-top: 1rem;
+      padding-left: 48px;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 20px;
+      left: 24px;
       top: 0;
-      width: 3px;
+      width: 4px;
       height: 100%;
       background: linear-gradient(180deg, var(--rosa-acento), var(--rosa-intenso));
-      border-radius: 3px;
+      border-radius: 4px;
     }
 
     .timeline-item {
       position: relative;
-      margin-bottom: 2rem;
+      margin-bottom: 1.6rem;
+      padding-left: 0.6rem;
     }
 
     .timeline-dot {
       position: absolute;
-      left: 10px;
-      top: 6px;
-      width: 20px;
-      height: 20px;
+      left: 12px;
+      top: 8px;
+      width: 22px;
+      height: 22px;
       background-color: var(--rosa-intenso);
-      border: 3px solid var(--blanco);
+      border: 4px solid var(--blanco);
       border-radius: 50%;
       box-shadow: 0 0 0 3px var(--rosa-acento);
     }
 
     .timeline-content {
       background-color: var(--blanco);
-      padding: 1.5rem;
+      padding: 1rem;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      border-left: 4px solid var(--rosa-intenso);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+      border-left: 4px solid rgba(231,154,176,0.12);
+      transition: transform 0.15s;
     }
+
+    .timeline-content:hover { transform: translateY(-4px); }
 
     .timeline-year {
       color: var(--rosa-intenso);
       font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
+      font-size: 0.98rem;
+      margin-bottom: 0.25rem;
       display: inline-block;
     }
 
     .timeline-title {
       color: var(--texto);
       font-weight: 600;
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
+      font-size: 1.02rem;
+      margin-bottom: 0.25rem;
     }
 
     .timeline-desc {
       color: #555;
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
     }
 
-    /* PROYECTOS */
+    /* PROYECTOS (grid de tarjetas) */
     .proyectos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
     .proyecto {
       background-color: var(--blanco);
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 1rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
     }
 
     .proyecto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
 
     .proyecto h3 {
       color: var(--rosa-intenso);
-      margin: 0 0 0.5rem 0;
+      margin: 0 0 0.4rem 0;
+      font-size: 1.05rem;
     }
 
     .proyecto p {
-      margin: 0.5rem 0;
+      margin: 0;
       font-size: 0.95rem;
+      color: #444;
     }
 
-    /* CHARLAS & VIDEOS */
+    /* EXPERIENCIAS: usar misma estructura que proyectos */
+    .experiencias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .experiencia-card {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+      border-left: 4px solid var(--rosa-intenso);
+    }
+
+    .experiencia-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .experiencia-card h4 {
+      margin: 0 0 0.4rem 0;
+      color: var(--rosa-intenso);
+      font-size: 1rem;
+    }
+
+    .experiencia-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* CHARLAS (mantengo sección de subidas) */
     .charlas-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
     .charla-card {
@@ -254,50 +303,44 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
     }
 
     .charla-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.09);
     }
 
     .charla-img {
       width: 100%;
-      height: 180px;
+      height: 140px;
       background: linear-gradient(135deg, var(--rosa-acento), var(--rosa-intenso));
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--blanco);
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
 
     .charla-content {
-      padding: 1.5rem;
+      padding: 1rem;
     }
 
     .charla-content h4 {
       color: var(--rosa-intenso);
-      margin: 0 0 0.5rem 0;
-      font-size: 1.1rem;
-    }
-
-    .charla-content p {
-      margin: 0.5rem 0;
-      font-size: 0.9rem;
-      color: #555;
+      margin: 0 0 0.4rem 0;
+      font-size: 1rem;
     }
 
     .charla-upload {
-      margin-top: 1rem;
-      padding: 1rem;
+      margin-top: 0.8rem;
+      padding: 0.8rem;
       background-color: var(--rosa-claro);
       border-radius: 8px;
       text-align: center;
       border: 2px dashed var(--rosa-acento);
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.2s;
     }
 
     .charla-upload:hover {
@@ -305,38 +348,32 @@
       background-color: var(--blanco);
     }
 
-    .charla-upload input {
-      display: none;
+    .charla-upload input { display: none; }
+    .charla-upload label { cursor: pointer; color: var(--rosa-intenso); font-weight: 500; }
+
+    /* HONORES & PREMIOS */
+    .honores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .charla-upload label {
-      cursor: pointer;
-      color: var(--rosa-intenso);
-      font-weight: 500;
-      display: block;
-    }
-
-    /* EXPERIENCIAS */
-    .experiencia-item {
+    .honor-card {
       background-color: var(--blanco);
       border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      border-left: 4px solid var(--rosa-intenso);
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      border-left: 4px solid var(--rosa-acento);
     }
 
-    .experiencia-item strong {
+    .honor-card h4 {
+      margin: 0 0 0.3rem 0;
       color: var(--rosa-intenso);
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
+      font-size: 1rem;
     }
 
-    .experiencia-item p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-    }
+    .honor-card p { margin: 0; color: #444; font-size: 0.95rem; }
 
     /* CONTACTO */
     .contacto a {
@@ -344,10 +381,7 @@
       text-decoration: none;
       font-weight: 500;
     }
-
-    .contacto a:hover {
-      text-decoration: underline;
-    }
+    .contacto a:hover { text-decoration: underline; }
 
     footer {
       text-align: center;
@@ -356,107 +390,230 @@
       color: #666;
     }
 
+    /* RESPONSIVE tweaks */
+    @media (max-width: 900px) {
+      header { padding-top: 2.8rem; }
+      .skill-item { width: 78px; }
+    }
+
     @media (max-width: 600px) {
-      header {
-        padding-top: 6rem;
-      }
-      nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
+      header { padding-top: 2.2rem; }
+      nav { gap: .6rem; padding: 0.7rem; }
+      .timeline { padding-left: 36px; }
+      .timeline::before { left: 18px; }
+      .timeline-dot { left: 8px; }
     }
   </style>
 </head>
 <body>
-
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#skills">Skills & Tech Stack</a>
     <a href="#charlas">Charlas & Vídeos</a>
     <a href="#proyectos">Proyectos</a>
     <a href="#trayectoria">Trayectoria</a>
-    <a href="#experiencia">Experiencias & Conferencias</a>
+    <a href="#experiencia">Experiencias</a>
+    <a href="#honores">Honores & Premios</a>
     <a href="#contacto">Contáctame</a>
   </nav>
 
-  <header id="inicio">
-    <img src="lu.png" alt="Foto de Lucía Tello">
-    <h1>Lucía Tello</h1>
-    <p>Estudiante de Computación Científica en la UNMSM, apasionada por la programación, el análisis de datos y el impacto social de la innovación.</p>
-  </header>
+  <main>
+    <header id="inicio">
+      <img src="lu.png" alt="Foto de Lucía Tello">
+      <h1>Lucía Tello</h1>
+      <p>Estudiante de Computación Científica en la UNMSM, apasionada por la programación, el análisis de datos y el impacto social de la innovación.</p>
+    </header>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills & Tech Stack</h2>
-    <p>Herramientas y tecnologías que utilizo frecuentemente:</p>
-    <div class="skills-container">
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python"><span>Python</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg" alt="Pandas"><span>Pandas</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg" alt="NumPy"><span>NumPy</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/matplotlib.svg" alt="Matplotlib"><span>Matplotlib</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI"><span>Power BI</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/sqlite.svg" alt="SQL"><span>SQL</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" alt="MySQL"><span>MySQL</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" alt="Git"><span>Git</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/fastapi.svg" alt="FastAPI"><span>FastAPI</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/matlab.svg" alt="MATLAB"><span>MATLAB</span></div>
-    </div>
-  </section>
+    <!-- Sobre mí -->
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <div class="card">
+        <p>Hola, soy Lucía Tello, estudiante de Computación Científica en la UNMSM y entusiasta de la tecnología apasionada por la programación, el análisis de datos y el impacto social de la innovación. Me interesa especialmente cómo la ciencia, la educación y la tecnología pueden abrir más oportunidades para las mujeres y reducir brechas de acceso. En este espacio comparto mis proyectos, aprendizajes y experimentos — desde código hasta ideas con propósito. Siempre aprendiendo algo nuevo, un commit a la vez.</p>
+      </div>
+    </section>
 
-  <!-- Charlas -->
-  <section id="charlas">
-    <h2>Charlas & Vídeos</h2>
-    <p>Aquí puedes subir tus presentaciones o materiales de charlas y talleres:</p>
-    <div class="charlas-grid">
-      <div class="charla-card">
-        <div class="charla-img">🎤</div>
-        <div class="charla-content">
-          <h4>Ponente</h4>
-          <p>Eventos de tecnología para jóvenes estudiantes, compartiendo experiencias en programación y análisis de datos.</p>
-          <div class="charla-upload">
-            <label for="charla1">📎 Sube tu presentación</label>
-            <input type="file" id="charla1" accept=".pdf,.ppt,.pptx,.doc,.docx,.xd,.fig">
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills & Tech Stack</h2>
+      <p>Herramientas y tecnologías que utilizo frecuentemente:</p>
+      <div class="skills-container">
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python"><span>Python</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg" alt="Pandas"><span>Pandas</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg" alt="NumPy"><span>NumPy</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/matplotlib.svg" alt="Matplotlib"><span>Matplotlib</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI"><span>Power BI</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/sqlite.svg" alt="SQL"><span>SQL</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg" alt="MySQL"><span>MySQL</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" alt="Git"><span>Git</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/fastapi.svg" alt="FastAPI"><span>FastAPI</span></div>
+        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/matlab.svg" alt="MATLAB"><span>MATLAB</span></div>
+      </div>
+    </section>
+
+    <!-- Charlas & Vídeos -->
+    <section id="charlas">
+      <h2>Charlas & Vídeos</h2>
+      <p>Aquí puedes subir tus presentaciones o materiales de charlas y talleres:</p>
+      <div class="charlas-grid">
+        <div class="charla-card">
+          <div class="charla-img">🎤</div>
+          <div class="charla-content">
+            <h4>Ponente</h4>
+            <p>Eventos de tecnología para jóvenes estudiantes, compartiendo experiencias en programación y análisis de datos.</p>
+            <div class="charla-upload">
+              <label for="charla1">📎 Sube tu presentación</label>
+              <input type="file" id="charla1" accept=".pdf,.ppt,.pptx,.doc,.docx,.xd,.fig">
+            </div>
+          </div>
+        </div>
+
+        <div class="charla-card">
+          <div class="charla-img">🌍</div>
+          <div class="charla-content">
+            <h4>Panelista</h4>
+            <p>Foros sobre educación y desarrollo sostenible (ODS 4 y 5).</p>
+            <div class="charla-upload">
+              <label for="charla2">📎 Sube tu presentación</label>
+              <input type="file" id="charla2" accept=".pdf,.ppt,.pptx,.doc,.docx,.xd,.fig">
+            </div>
+          </div>
+        </div>
+
+        <div class="charla-card">
+          <div class="charla-img">💡</div>
+          <div class="charla-content">
+            <h4>Proyectos</h4>
+            <p>Desarrollo de aplicaciones educativas con HTML, CSS y Python. Investigación en IA y sostenibilidad.</p>
+            <div class="charla-upload">
+              <label for="charla3">📎 Sube tu presentación</label>
+              <input type="file" id="charla3" accept=".pdf,.ppt,.pptx,.doc,.docx,.xd,.fig">
+            </div>
           </div>
         </div>
       </div>
-      <div class="charla-card">
-        <div class="charla-img">🌍</div>
-        <div class="charla-content">
-          <h4>Panelista</h4>
-          <p>Foros sobre educación y desarrollo sostenible (ODS 4 y 5).</p>
-          <div class="charla-upload">
-            <label for="charla2">📎 Sube tu presentación</label>
-            <input type="file" id="charla2" accept=".pdf,.ppt,.pptx,.doc,.docx,.xd,.fig">
-          </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <div class="proyectos">
+        <div class="proyecto">
+          <h3>NASA Space Apps 2024</h3>
+          <p><em>Solstice — Zephir-O</em>, enfocado en simulaciones atmosféricas y visualización de datos climáticos.</p>
+        </div>
+        <div class="proyecto">
+          <h3>NASA Space Apps 2025</h3>
+          <p><em>ASTRALIS BU</em>, simulador educativo sobre impacto de asteroides usando datasets de NASA.</p>
+        </div>
+        <div class="proyecto">
+          <h3>VOTI</h3>
+          <p>Plataforma de visualización interactiva para datos públicos y sociales en Perú.</p>
         </div>
       </div>
-      <div class="charla-card">
-        <div class="charla-img">💡</div>
-        <div class="charla-content">
-          <h4>Proyectos</h4>
-          <p>Desarrollo de aplicaciones educativas con HTML, CSS y Python. Investigación en IA y sostenibilidad.</p>
-          <div class="charla-upload">
-            <label for="charla3">📎 Sube tu presentación</label>
-            <input type="file" id="charla3" accept=".pdf,.ppt,.pptx,.doc,.docx,.xd,.fig">
+    </section>
+
+    <!-- Trayectoria -->
+    <section id="trayectoria">
+      <h2>Trayectoria</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">Administrador de Sistemas & BBDD — Minsait / BBVA</div>
+            <div class="timeline-desc">Gestión de entornos críticos en Linux/Solaris y bases de datos Oracle, SQL Server, MongoDB.</div>
           </div>
         </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">Profesor de Python — CEI</div>
+            <div class="timeline-desc">Programación con Python, Big Data y manipulación de datos. Formación práctica en Pandas, NumPy y ETL.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-title">Profesor colaborador — Máster Big Data & IA (CCC)</div>
+            <div class="timeline-desc">PySpark, ML a escala y bases NoSQL. Diseño de proyectos prácticos con datos distribuidos y machine learning.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-year">2023 - 2025</div>
+            <div class="timeline-title">Accounting Assistant — SV ARQUEÓLOGOS E.I.R.L.</div>
+            <div class="timeline-desc">Asistencia contable en consultora arqueológica. Lima, Perú (Presencial).</div>
+          </div>
+        </div>
+
+        <!-- Puedes duplicar y editar estas entradas para añadir más items -->
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Proyectos -->
-  <section id="proyectos">
-    <h2>Proyectos</h2>
-    <div class="proyectos">
-      <div class="proyecto"><h3>NASA Space Apps 2024</h3><p><em>Solstice — Zephir-O</em>: simulaciones atmosféricas y visualización de datos climáticos.</p></div>
-      <div class="proyecto"><h3>NASA Space Apps 2025</h3><p><em>ASTRALIS BU</em>: simulador educativo sobre impacto de asteroides usando datasets de NASA.</p></div>
-      <div class="proyecto"><h3>VOTI</h3><p>Plataforma de visualización interactiva para datos públicos y sociales en Perú.</p></div>
-    </div>
-  </section>
+    <!-- Experiencias (misma estructura visual que Proyectos) -->
+    <section id="experiencia">
+      <h2>Experiencias & Conferencias</h2>
+      <p>Aquí comparto algunas presentaciones y experiencias donde he participado:</p>
 
-  <!-- Trayectoria -->
-  <section id="trayectoria">
-    <h2>Trayectoria</h2>
-    <div class="timeline">
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025</div><div class="timeline-title">Administrador de Sistemas & BBDD — Minsait / BBVA</div><div class="timeline-desc">Gestión de entornos críticos en Linux/Solaris y bases de datos Oracle, SQL Server, MongoDB.</div></div></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-year">2025</div><div class="timeline-title">Profesor de Python — CEI</div><div class="timeline-desc">Program
+      <div class="experiencias-grid">
+        <div class="experiencia-card">
+          <h4>Ponente — Eventos estudiantiles</h4>
+          <p>Presentaciones en eventos de tecnología para jóvenes, compartiendo experiencias en programación y análisis de datos.</p>
+        </div>
+
+        <div class="experiencia-card">
+          <h4>Panelista — Foros educativos</h4>
+          <p>Participación en foros sobre educación y desarrollo sostenible (ODS 4 y 5).</p>
+        </div>
+
+        <div class="experiencia-card">
+          <h4>Desarrollos & Talleres</h4>
+          <p>Proyectos educativos y talleres prácticos con HTML, CSS, Python e introducción a IA.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Honores & Premios -->
+    <section id="honores">
+      <h2>Honores & Premios</h2>
+      <p>Reconocimientos y logros relevantes:</p>
+      <div class="honores-grid">
+        <div class="honor-card">
+          <h4>Mentions / Distinción</h4>
+          <p>Participación destacada en concursos estudiantiles (detalles y año si deseas agregarlos).</p>
+        </div>
+
+        <div class="honor-card">
+          <h4>NASA Space Apps — Participación</h4>
+          <p>Contribución al equipo en hackathons internacionales (2024, 2025).</p>
+        </div>
+
+        <div class="honor-card">
+          <h4>Becas / Apoyos</h4>
+          <p>Apoyos académicos y becas obtenidas para proyectos o formación (añade los detalles si quieres).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="card contacto">
+        <p>📧 <a href="mailto:luciagiullianatelloleon@gmail.com">luciagiullianatelloleon@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/lucia-giulliana-tello-le%C3%B3n-b8288120b/" target="_blank">LinkedIn</a> |
+           <a href="https://www.instagram.com/luciatelle18/" target="_blank">Instagram</a></p>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Lucía Tello — Hecho con 💗 y curiosidad.
+    </footer>
+  </main>
+</body>
+</html>
