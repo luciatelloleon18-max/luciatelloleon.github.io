@@ -14,9 +14,7 @@
       --blanco:#fff;
     }
     *{box-sizing:border-box; scroll-behavior:smooth;}
-    body{
-      margin:0;font-family:'Poppins',sans-serif;background-color:var(--rosa-claro);color:var(--texto);
-    }
+    body{ margin:0; font-family:'Poppins',sans-serif; background-color:var(--rosa-claro); color:var(--texto); }
 
     /* NAVBAR */
     nav{
@@ -26,16 +24,16 @@
       display:flex; justify-content:center; gap:1rem; padding:0.9rem 1rem; flex-wrap:wrap;
       transition:transform .28s ease, box-shadow .2s;
     }
-    nav.hidden-nav{ transform: translateY(-110%); } /* ocultar al bajar */
-    nav a{ color:var(--texto); text-decoration:none; font-weight:500; transition:color .2s; padding:0.25rem .5rem;}
+    nav.hidden-nav{ transform: translateY(-110%); }
+    nav a{ color:var(--texto); text-decoration:none; font-weight:500; transition:color .2s; padding:0.25rem .5rem; }
     nav a:hover{ color:var(--rosa-intenso); }
 
-    main{ padding-top:5.6rem; } /* espacio para navbar */
+    main{ padding-top:5.6rem; }
 
     /* HEADER */
     header{ text-align:center; padding:3.5rem 2rem 2rem; }
     header img{ width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid var(--rosa-acento);box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-    header h1{ margin-top:1rem;color:var(--rosa-intenso);font-size:2.1rem;}
+    header h1{ margin-top:1rem;color:var(--rosa-intenso);font-size:2.1rem; }
     header p{ max-width:760px;margin:.6rem auto 0;font-size:1rem; }
 
     section{ padding:3rem 1.5rem; max-width:1000px; margin:0 auto; }
@@ -48,29 +46,30 @@
     .skills-container{ display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:1rem; justify-content:center; align-items:center; }
     .skill-item{ display:flex; flex-direction:column; align-items:center; gap:.5rem; transition:transform .3s; width:92px; }
     .skill-item:hover{ transform:translateY(-6px) scale(1.02); }
-    .skill-item img{ width:60px;height:60px; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(.95); transition:all .25s; }
-    .skill-item img:hover{ filter:drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1); transform:scale(1.07); }
+    .skill-item img, .skill-item svg{ width:60px; height:60px; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(.95); transition:all .25s; }
+    .skill-item img:hover, .skill-item svg:hover{ filter:drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1); transform:scale(1.07); }
     .skill-item span{ font-size:.85rem; color:var(--rosa-intenso); font-weight:500; text-align:center; }
 
-    /* TRAYECTORIA */
+    /* TRAYECTORIA (timeline con puntitos centrados sobre la línea) */
     .timeline{ position:relative; margin-top:1rem; padding-left:50px; }
     .timeline::before{ content:''; position:absolute; left:25px; top:0; width:4px; height:100%; background:linear-gradient(180deg,var(--rosa-acento),var(--rosa-intenso)); border-radius:4px; }
     .timeline-item{ position:relative; margin-bottom:1.6rem; }
-    .timeline-dot{ position:absolute; left:15px; top:50%; transform:translateY(-50%); width:22px; height:22px; background-color:var(--rosa-intenso); border:4px solid var(--blanco); border-radius:50%; box-shadow:0 0 0 3px var(--rosa-acento); }
+    /* DOT pequeño centrado exactamente sobre la línea para cada item */
+    .timeline-dot{ position:absolute; left:21px; top:50%; transform:translateY(-50%); width:12px; height:12px; background-color:var(--rosa-intenso); border:2px solid var(--blanco); border-radius:50%; box-shadow:none; }
     .timeline-content{ background-color:var(--blanco); padding:1rem; border-radius:12px; box-shadow:0 6px 14px rgba(0,0,0,0.06); border-left:4px solid rgba(231,154,176,0.12); transition:transform .15s; position:relative; }
     .timeline-content:hover{ transform:translateY(-4px); }
     .timeline-year{ color:var(--rosa-intenso); font-weight:700; font-size:.98rem; }
     .timeline-title{ color:var(--texto); font-weight:600; font-size:1.02rem; margin-bottom:.25rem; }
     .timeline-desc{ color:#555; font-size:.92rem; }
 
-    /* GRIDS: proyectos/experiencias/honores */
+    /* GRIDS */
     .proyectos,.experiencias-grid,.honores-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
     .proyecto,.experiencia-card,.honor-card{ background-color:var(--blanco); border-radius:12px; padding:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform .2s ease, box-shadow .25s ease; }
     .proyecto:hover,.experiencia-card:hover,.honor-card:hover{ transform:translateY(-6px); box-shadow:0 10px 20px rgba(0,0,0,0.08); }
     .proyecto h3,.experiencia-card h4,.honor-card h4{ color:var(--rosa-intenso); margin:0 0 .4rem 0; font-size:1.05rem; }
     .proyecto p,.experiencia-card p,.honor-card p{ margin:0; font-size:.95rem; color:#444; }
 
-    /* CHARLAS - upload + preview */
+    /* CHARLAS */
     .charlas-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-top:1rem; }
     .charla-card{ background-color:var(--blanco); border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform .2s ease, box-shadow .25s ease; }
     .charla-card:hover{ transform:translateY(-4px); box-shadow:0 8px 16px rgba(0,0,0,0.09); }
@@ -80,14 +79,12 @@
     .charla-upload:hover{ border-color:var(--rosa-intenso); background-color:var(--blanco); }
     .charla-upload input{ display:none; }
     .charla-upload label{ cursor:pointer; color:var(--rosa-intenso); font-weight:500; display:block; }
-
-    /* preview area */
     .preview-wrapper{ margin-top:.8rem; border-radius:8px; overflow:hidden; border:1px solid rgba(0,0,0,0.06); background:#fafafa; }
     .preview-toolbar{ display:flex; gap:.5rem; align-items:center; padding:.5rem; background:#fff; border-bottom:1px solid rgba(0,0,0,0.04); }
     .preview-iframe{ width:100%; height:360px; border:0; display:block; }
     .preview-img{ width:100%; height:auto; display:block; }
 
-    /* CONTACTO limpio (sin tarjeta) */
+    /* CONTACTO */
     #contacto p{ text-align:center; font-size:1rem; margin:.6rem 0; }
     #contacto a{ color:var(--rosa-intenso); text-decoration:none; font-weight:500; }
     #contacto a:hover{ text-decoration:underline; }
@@ -95,8 +92,8 @@
     footer{ text-align:center; padding:2rem; font-size:.9rem; color:#666; }
 
     /* responsive */
-    @media(max-width:900px){ header{ padding-top:2.8rem;} .skill-item{ width:78px; } }
-    @media(max-width:600px){ header{ padding-top:2.2rem;} nav{ gap:.6rem; padding:.7rem;} .timeline{ padding-left:36px;} .timeline::before{ left:18px;} .timeline-dot{ left:8px;} .preview-iframe{ height:240px; } }
+    @media(max-width:900px){ header{ padding-top:2.8rem; } .skill-item{ width:78px; } }
+    @media(max-width:600px){ header{ padding-top:2.2rem; } nav{ gap:.6rem; padding:.7rem; } .timeline{ padding-left:36px; } .timeline::before{ left:18px; } .timeline-dot{ left:12px; } .preview-iframe{ height:240px; } }
   </style>
 </head>
 <body>
@@ -131,7 +128,21 @@
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python"><span>Python</span></div>
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg" alt="Pandas"><span>Pandas</span></div>
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg" alt="NumPy"><span>NumPy</span></div>
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/sqlite.svg" alt="SQL"><span>SQL</span></div>
+
+        <!-- ICONO SQL genérico (SVG inline para consistencia y sin depender de un icono incorrecto) -->
+        <div class="skill-item" aria-label="SQL">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <title>SQL</title>
+            <g fill="none" fill-rule="evenodd">
+              <ellipse cx="12" cy="6" rx="7" ry="2.2" fill="#e79ab0"/>
+              <path d="M5 6v6c0 1.2 3.13 2.2 7 2.2s7-1 7-2.2V6" fill="#f4b6c2"/>
+              <path d="M5 12v6c0 1.2 3.13 2.2 7 2.2s7-1 7-2.2v-6" fill="#e79ab0" opacity="0.9"/>
+              <ellipse cx="12" cy="18.4" rx="7" ry="1.6" fill="#f4b6c2" />
+            </g>
+          </svg>
+          <span>SQL</span>
+        </div>
+
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI"><span>Power BI</span></div>
       </div>
     </section>
@@ -142,7 +153,6 @@
       <p>Aquí puedes subir tus presentaciones (PDF/PPT/Imágenes). Si subes un PDF verás la portada en vista previa.</p>
 
       <div class="charlas-grid">
-        <!-- Repite o añade más tarjetas si quieres múltiples uploads -->
         <div class="charla-card">
           <div class="charla-img">📎</div>
           <div class="charla-content">
@@ -160,9 +170,7 @@
                 <div style="flex:1"></div>
                 <button id="closePreview" style="background:none;border:0;color:var(--rosa-intenso);cursor:pointer;font-weight:600">Cerrar</button>
               </div>
-              <div id="previewContent" style="padding:.6rem;">
-                <!-- iframe for pdf or img / link for pptx -->
-              </div>
+              <div id="previewContent" style="padding:.6rem;"></div>
             </div>
 
           </div>
@@ -173,18 +181,9 @@
     <section id="proyectos">
       <h2>Proyectos</h2>
       <div class="proyectos">
-        <div class="proyecto">
-          <h3>NASA Space Apps 2024</h3>
-          <p><em>Solstice — Zephir-O</em>, enfocado en simulaciones atmosféricas y visualización de datos climáticos.</p>
-        </div>
-        <div class="proyecto">
-          <h3>NASA Space Apps 2025</h3>
-          <p><em>ASTRALIS BU</em>, simulador educativo sobre impacto de asteroides usando datasets de NASA.</p>
-        </div>
-        <div class="proyecto">
-          <h3>VOTI</h3>
-          <p>Plataforma de visualización interactiva para datos públicos y sociales en Perú.</p>
-        </div>
+        <div class="proyecto"><h3>NASA Space Apps 2024</h3><p><em>Solstice — Zephir-O</em>, enfocado en simulaciones atmosféricas y visualización de datos climáticos.</p></div>
+        <div class="proyecto"><h3>NASA Space Apps 2025</h3><p><em>ASTRALIS BU</em>, simulador educativo sobre impacto de asteroides usando datasets de NASA.</p></div>
+        <div class="proyecto"><h3>VOTI</h3><p>Plataforma de visualización interactiva para datos públicos y sociales en Perú.</p></div>
       </div>
     </section>
 
@@ -257,10 +256,8 @@
         const st = window.pageYOffset || document.documentElement.scrollTop;
         if (Math.abs(st - lastScroll) <= threshold) return;
         if (st > lastScroll && st > 80){
-          // scrolling down
           nav.classList.add('hidden-nav');
         } else {
-          // scrolling up
           nav.classList.remove('hidden-nav');
         }
         lastScroll = st <= 0 ? 0 : st;
@@ -281,9 +278,9 @@
         previewArea.style.display = 'none';
       }
 
-      closeBtn.addEventListener('click', clearPreview);
+      if (closeBtn) closeBtn.addEventListener('click', clearPreview);
 
-      input.addEventListener('change', (e) => {
+      if (input) input.addEventListener('change', (e) => {
         const f = e.target.files && e.target.files[0];
         if (!f) { clearPreview(); return; }
         const name = f.name;
@@ -295,36 +292,27 @@
         const url = URL.createObjectURL(f);
 
         if (ext === 'pdf') {
-          // embed pdf
           const iframe = document.createElement('iframe');
           iframe.className = 'preview-iframe';
           iframe.src = url;
           previewContent.appendChild(iframe);
-        } else if (ext === 'jpg' || ext === 'jpeg' || ext === 'png' || ext === 'gif') {
+        } else if (['jpg','jpeg','png','gif'].includes(ext)) {
           const img = document.createElement('img');
           img.className = 'preview-img';
           img.src = url;
           img.alt = name;
           previewContent.appendChild(img);
         } else {
-          // for pptx/ppt/docx show download link and info (can't preview in-browser reliably)
           const info = document.createElement('div');
           info.style.padding = '.6rem';
           info.innerHTML = `<p style="margin:0 .0rem .6rem 0;color:#444">No se puede previsualizar directamente este formato en el navegador. Puedes descargarlo o subir un PDF/imagen como portada.</p>`;
           const a = document.createElement('a');
-          a.href = url;
-          a.download = name;
-          a.textContent = 'Descargar archivo';
-          a.style.display = 'inline-block';
-          a.style.marginTop = '.4rem';
-          a.style.color = 'var(--rosa-intenso)';
-          a.style.fontWeight = '600';
+          a.href = url; a.download = name; a.textContent = 'Descargar archivo';
+          a.style.display = 'inline-block'; a.style.marginTop = '.4rem'; a.style.color = 'var(--rosa-intenso)'; a.style.fontWeight = '600';
           info.appendChild(a);
           previewContent.appendChild(info);
         }
 
-        // revokeObjectURL after iframe/image loaded to free memory
-        // keep a small delay to allow embed to initialize
         setTimeout(()=> URL.revokeObjectURL(url), 20000);
       });
     })();
