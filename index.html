@@ -102,8 +102,8 @@
     .proyecto h3,.experiencia-card h4,.honor-card h4{ color:var(--rosa-intenso); margin:0 0 .4rem 0; font-size:1.05rem; }
     .proyecto p,.experiencia-card p,.honor-card p{ margin:0; font-size:.95rem; color:#444; }
 
-    /* === CHARLAS & VIDEOS === */
- #charlas {
+    /* === CHARLAS === */
+  #charlas {
     background-color: var(--rosa-claro);
     padding: 3rem 1.5rem;
     max-width: 1000px;
@@ -114,7 +114,7 @@
     color: var(--rosa-intenso);
     border-bottom: 2px solid var(--rosa-acento);
     display: inline-block;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-size: 1.6rem;
     text-align: left;
   }
@@ -122,26 +122,26 @@
   .charlas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    justify-content: start;
+    gap: 1rem;
+    margin-top: 1rem;
   }
 
   .charla-card {
     background-color: var(--blanco);
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform .2s ease, box-shadow .25s ease;
     overflow: hidden;
-    transition: transform .25s, box-shadow .25s;
   }
 
   .charla-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
   }
 
   .charla-card img {
     width: 100%;
-    height: 170px;
+    height: 160px;
     object-fit: cover;
     border-bottom: 3px solid var(--rosa-acento);
   }
@@ -152,14 +152,19 @@
 
   .charla-info h3 {
     color: var(--rosa-intenso);
-    margin: 0 0 0.4rem 0;
+    margin: 0 0 0.5rem 0;
     font-size: 1.05rem;
   }
 
   .charla-info p {
-    margin: 0;
+    margin: 0.25rem 0;
     color: #444;
-    font-size: 0.93rem;
+    font-size: 0.92rem;
+  }
+
+  .charla-info strong {
+    color: var(--rosa-intenso);
+    font-weight: 600;
   }
 
     /* CONTACTO */
@@ -253,37 +258,41 @@
     <!-- === CHARLAS & VIDEOS === -->
 <section id="charlas">
   <h2>Charlas & Videos</h2>
+
   <div class="charlas-grid">
-    <!-- Tarjeta 1 -->
+    <!-- Charla 1 -->
     <div class="charla-card">
       <a href="assets/docs/Charla1.pdf" target="_blank">
         <img src="assets/images/Charla1.png" alt="Machine Learning para Estudiantes">
       </a>
       <div class="charla-info">
         <h3>Machine Learning para Estudiantes</h3>
-        <p>Introducción a Machine Learning para nivel secundaria — FCM UNMSM</p>
+        <p><strong>Evento:</strong> FCM – UNMSM</p>
+        <p><strong>Descripción:</strong> Introducción a Machine Learning para nivel secundaria.</p>
       </div>
     </div>
 
-    <!-- Tarjeta 2 -->
+    <!-- Charla 2 -->
     <div class="charla-card">
-      <a href="assets/docs/charla2.pptx" target="_blank">
+      <a href="assets/docs/charla2.pdf" target="_blank">
         <img src="assets/images/charla2.png" alt="Análisis Léxico">
       </a>
       <div class="charla-info">
         <h3>Análisis Léxico</h3>
-        <p>Curso de Sistemas Operativos</p>
+        <p><strong>Evento:</strong> Curso de Sistemas Operativos</p>
+        <p><strong>Descripción:</strong> Charla sobre el proceso de análisis léxico en compiladores.</p>
       </div>
     </div>
 
-    <!-- Tarjeta 3 -->
+    <!-- Charla 3 -->
     <div class="charla-card">
-      <a href="assets/docs/charla3.mp4" target="_blank">
+      <a href="assets/docs/charla3.pdf" target="_blank">
         <img src="assets/images/charla3.png" alt="Análisis Sintáctico">
       </a>
       <div class="charla-info">
         <h3>Análisis Sintáctico</h3>
-        <p>Curso de Sistemas Operativos</p>
+        <p><strong>Evento:</strong> Curso de Sistemas Operativos</p>
+        <p><strong>Descripción:</strong> Introducción al análisis sintáctico y estructura de gramáticas.</p>
       </div>
     </div>
   </div>
