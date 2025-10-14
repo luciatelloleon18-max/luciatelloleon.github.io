@@ -102,86 +102,101 @@
     .proyecto h3,.experiencia-card h4,.honor-card h4{ color:var(--rosa-intenso); margin:0 0 .4rem 0; font-size:1.05rem; }
     .proyecto p,.experiencia-card p,.honor-card p{ margin:0; font-size:.95rem; color:#444; }
 
-    /* === CHARLAS & VIDEOS (estilo rosita) === */
+    /* === CHARLAS & VIDEOS === */
 #charlas {
-  background-color: var(--rosa-claro);
-  color: var(--texto);
+  background-color: #ffeef4; /* Rosa muy suave */
+  color: #4b3b40;
   padding: 3rem 1.5rem;
   text-align: center;
 }
 
 #charlas h2 {
-  color: var(--rosa-intenso);
-  font-size: 1.8rem;
-  margin-bottom: 1.8rem;
-  border-bottom: 2px solid var(--rosa-acento);
+  color: #e67991; /* Rosa intenso */
+  font-size: 1.9rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #f4b6c2;
   display: inline-block;
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.4rem;
 }
 
-/* Contenedor de tarjetas */
+/* Contenedor */
 .cards-container {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
 }
 
-/* Tarjeta */
+/* Tarjetas */
 .charla-card {
-  background-color: var(--blanco);
-  border-radius: 16px;
+  background-color: #fff;
+  border-radius: 18px;
+  width: 300px;
   overflow: hidden;
-  width: 280px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.06);
-  transition: transform 0.25s ease, box-shadow 0.3s ease;
-  border: 2px solid rgba(244,182,194,0.25);
+  box-shadow: 0 8px 20px rgba(231, 154, 176, 0.25);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .charla-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(231,154,176,0.25);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(231, 154, 176, 0.35);
 }
 
-/* Imagen de portada */
+/* Imagen */
 .charla-card img {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
-  border-bottom: 2px solid rgba(244,182,194,0.4);
+  border-bottom: 3px solid #f4b6c2;
 }
 
-/* Texto dentro de la tarjeta */
+/* Texto */
 .charla-info {
-  padding: 1rem;
+  padding: 1rem 1.2rem;
   text-align: left;
 }
 
 .charla-info h3 {
-  font-size: 1.05rem;
-  color: var(--rosa-intenso);
-  margin-bottom: 0.4rem;
+  color: #e97c9b;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
   font-weight: 600;
 }
 
 .charla-info p {
-  font-size: 0.9rem;
   color: #555;
-  margin: 0;
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
 }
 
-/* Botón (opcional para ver más o abrir) */
-.charla-card a {
+/* Botón */
+.charla-btn {
+  text-align: center;
+  padding: 0.8rem;
+  background-color: #ffeef4;
+}
+
+.charla-btn a {
+  display: inline-block;
+  background-color: #f4b6c2;
+  color: white;
   text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.25s ease;
 }
 
-.charla-card a:hover img {
-  filter: brightness(1.05);
+.charla-btn a:hover {
+  background-color: #e67991;
+  transform: scale(1.05);
 }
 
 /* Responsivo */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .cards-container {
     flex-direction: column;
     align-items: center;
@@ -190,6 +205,9 @@
     width: 90%;
   }
 }
+
+    
+    
 
     /* CONTACTO */
     #contacto p {
@@ -281,43 +299,54 @@
     
     <!-- CHARLAS: subida y preview -->
    
-    <section id="charlas" class="section">
+    <!-- === CHARLAS & VIDEOS === -->
+<section id="charlas">
   <h2>Charlas & Videos</h2>
+
   <div class="cards-container">
-    
+
     <!-- Tarjeta 1 -->
     <div class="charla-card">
-      <a href="assets/docs/charla1.pdf" target="_blank">
-        <img src="assets/images/charla1.png" alt="Crea tu primer servidor MCP">
-      </a>
+      <img src="assets/images/Charla1.png" alt="Machine Learning para Estudiantes">
       <div class="charla-info">
         <h3>Machine Learning para Estudiantes</h3>
-        <p>Introducción a Machine Learning para nivel secundaria</p>
+        <p><strong>Evento:</strong> FCM – UNMSM</p>
+        <p><strong>Descripción:</strong> Introducción a Machine Learning para nivel secundaria.</p>
+      </div>
+      <div class="charla-btn">
+        <a href="assets/docs/Charla1.pdf" target="_blank">Ver PDF</a>
       </div>
     </div>
 
-    <!-- Tarjeta 2 -->
+    <!-- Tarjeta 2 (puedes duplicar este bloque y cambiar el contenido) -->
     <div class="charla-card">
-      <a href="assets/docs/charla2.pptx" target="_blank">
-        <img src="assets/images/charla2.png" alt="Consulta tus documentos con IA local">
-      </a>
+      <img src="assets/images/Charla2.png" alt="Nombre de la charla 2">
       <div class="charla-info">
-        <h3>Análisis Léxico</h3>
-        <p>Curso de Sistemas Operativos</p>
+        <h3>Nombre de la Charla 2</h3>
+        <p><strong>Evento:</strong> Universidad o institución</p>
+        <p><strong>Descripción:</strong> Breve resumen de la charla o video.</p>
+      </div>
+      <div class="charla-btn">
+        <a href="assets/docs/Charla2.pdf" target="_blank">Ver PDF</a>
       </div>
     </div>
 
     <!-- Tarjeta 3 -->
     <div class="charla-card">
-      <a href="assets/docs/charla3.mp4" target="_blank">
-        <img src="assets/images/charla3.png" alt="Tu propio ChatGPT local">
-      </a>
+      <img src="assets/images/Charla3.png" alt="Nombre de la charla 3">
       <div class="charla-info">
-        <h3>Análisis Sintáctico</h3>
-        <p>Curso de Sistemas Operativos</p>
+        <h3>Nombre de la Charla 3</h3>
+        <p><strong>Evento:</strong> Nombre del evento</p>
+        <p><strong>Descripción:</strong> Breve resumen de la presentación o conferencia.</p>
+      </div>
+      <div class="charla-btn">
+        <a href="assets/docs/Charla3.pdf" target="_blank">Ver PDF</a>
       </div>
     </div>
-    </section>
+
+  </div>
+</section>
+
 
     <section id="proyectos">
       <h2>Proyectos</h2>
