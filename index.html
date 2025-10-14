@@ -43,12 +43,45 @@
     .card:hover{ transform:translateY(-3px); box-shadow:0 8px 16px rgba(0,0,0,0.08); }
 
     /* SKILLS */
-    .skills-container{ display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:1rem; justify-content:center; align-items:center; }
-    .skill-item{ display:flex; flex-direction:column; align-items:center; gap:.5rem; transition:transform .3s; width:92px; }
-    .skill-item:hover{ transform:translateY(-6px) scale(1.02); }
-    .skill-item img, .skill-item svg{ width:60px; height:60px; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(.95); transition:all .25s; }
-    .skill-item img:hover, .skill-item svg:hover{ filter:drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1); transform:scale(1.07); }
-    .skill-item span{ font-size:.85rem; color:var(--rosa-intenso); font-weight:500; text-align:center; }
+  .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
+      width: 92px;
+    }
+
+    .skill-item:hover { transform: translateY(-6px) scale(1.02); }
+
+    .skill-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(0.95);
+      transition: all 0.25s;
+    }
+
+    .skill-item img:hover {
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1);
+      transform: scale(1.07);
+    }
+
+    .skill-item span {
+      font-size: 0.85rem;
+      color: var(--rosa-intenso);
+      font-weight: 500;
+      text-align: center;
+    }
 
     /* TRAYECTORIA (timeline con puntitos centrados sobre la línea) */
     .timeline{ position:relative; margin-top:1rem; padding-left:50px; }
@@ -70,19 +103,56 @@
     .proyecto p,.experiencia-card p,.honor-card p{ margin:0; font-size:.95rem; color:#444; }
 
     /* CHARLAS */
-    .charlas-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-top:1rem; }
-    .charla-card{ background-color:var(--blanco); border-radius:12px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform .2s ease, box-shadow .25s ease; }
-    .charla-card:hover{ transform:translateY(-4px); box-shadow:0 8px 16px rgba(0,0,0,0.09); }
-    .charla-img{ width:100%; height:140px; background:linear-gradient(135deg,var(--rosa-acento),var(--rosa-intenso)); display:flex; align-items:center; justify-content:center; color:var(--blanco); font-size:2.5rem; }
-    .charla-content{ padding:1rem; }
-    .charla-upload{ margin-top:.8rem; padding:.8rem; background-color:var(--rosa-claro); border-radius:8px; text-align:center; border:2px dashed var(--rosa-acento); cursor:pointer; transition:all .2s; }
-    .charla-upload:hover{ border-color:var(--rosa-intenso); background-color:var(--blanco); }
-    .charla-upload input{ display:none; }
-    .charla-upload label{ cursor:pointer; color:var(--rosa-intenso); font-weight:500; display:block; }
-    .preview-wrapper{ margin-top:.8rem; border-radius:8px; overflow:hidden; border:1px solid rgba(0,0,0,0.06); background:#fafafa; }
-    .preview-toolbar{ display:flex; gap:.5rem; align-items:center; padding:.5rem; background:#fff; border-bottom:1px solid rgba(0,0,0,0.04); }
-    .preview-iframe{ width:100%; height:360px; border:0; display:block; }
-    .preview-img{ width:100%; height:auto; display:block; }
+    .charla-preview {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 2px solid var(--rosa-acento);
+      height: 160px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .charla-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .charla-preview:hover img { opacity: 0.7; }
+
+    .charla-preview span {
+      position: absolute;
+      color: var(--rosa-intenso);
+      font-weight: 600;
+      background: rgba(255,255,255,0.9);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .charla-preview:hover span { opacity: 1; }
+
+    /* CONTACTO */
+    #contacto p {
+      text-align: center;
+      font-size: 1rem;
+      margin: 0.6rem 0;
+    }
+    #contacto a {
+      color: var(--rosa-intenso);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    #contacto a:hover { text-decoration: underline; }
+
 
     /* CONTACTO */
     #contacto p{ text-align:center; font-size:1rem; margin:.6rem 0; }
