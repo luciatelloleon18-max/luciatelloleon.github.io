@@ -103,42 +103,77 @@
     .proyecto p,.experiencia-card p,.honor-card p{ margin:0; font-size:.95rem; color:#444; }
 
     /* CHARLAS */
-    .charla-preview {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      border: 2px solid var(--rosa-acento);
-      height: 160px;
-      background-color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+      </div>
+</section>
 
-    .charla-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-      transition: opacity 0.3s;
-    }
+<style>
+  #charlas {
+    background: #0d1021;
+    color: white;
+    padding: 60px 0;
+  }
 
-    .charla-preview:hover img { opacity: 0.7; }
+  #charlas h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-left: 10%;
+    position: relative;
+  }
 
-    .charla-preview span {
-      position: absolute;
-      color: var(--rosa-intenso);
-      font-weight: 600;
-      background: rgba(255,255,255,0.9);
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
+  #charlas h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #ff9bcb;
+    margin-top: 5px;
+    border-radius: 3px;
+  }
 
-    .charla-preview:hover span { opacity: 1; }
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0 10%;
+  }
+
+  .charla-card {
+    background: #181b2e;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(255, 155, 203, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 280px;
+  }
+
+  .charla-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 155, 203, 0.3);
+  }
+
+  .charla-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .charla-info {
+    padding: 15px;
+    text-align: left;
+  }
+
+  .charla-info h3 {
+    font-size: 1.1rem;
+    color: #ffd1e1;
+    margin-bottom: 8px;
+  }
+
+  .charla-info p {
+    font-size: 0.9rem;
+    color: #d1d1e0;
+  }
 
     /* CONTACTO */
     #contacto p {
@@ -227,6 +262,7 @@
 </div>
 </div>
 </section>
+    
     <!-- CHARLAS: subida y preview -->
    
     <section id="charlas" class="section">
@@ -239,8 +275,8 @@
         <img src="assets/images/charla1.png" alt="Crea tu primer servidor MCP">
       </a>
       <div class="charla-info">
-        <h3>Crea tu primer servidor MCP</h3>
-        <p>Explorando FastMCP y Python para IA local</p>
+        <h3>Machine Learning para Estudiantes</h3>
+        <p>Introducción a Machine Learning para nivel secundaria</p>
       </div>
     </div>
 
@@ -250,8 +286,8 @@
         <img src="assets/images/charla2.png" alt="Consulta tus documentos con IA local">
       </a>
       <div class="charla-info">
-        <h3>Consulta tus documentos con IA local</h3>
-        <p>Integrando Ollama y LangChain en proyectos reales</p>
+        <h3>Análisis Léxico</h3>
+        <p>Curso de Sistemas Operativos</p>
       </div>
     </div>
 
@@ -261,84 +297,11 @@
         <img src="assets/images/charla3.png" alt="Tu propio ChatGPT local">
       </a>
       <div class="charla-info">
-        <h3>Tu propio ChatGPT local</h3>
-        <p>Ejecuta modelos locales con interfaz personalizada</p>
+        <h3>Análisis Sintáctico</h3>
+        <p>Curso de Sistemas Operativos</p>
       </div>
     </div>
-
-  </div>
-</section>
-
-<style>
-  #charlas {
-    background: #0d1021;
-    color: white;
-    padding: 60px 0;
-  }
-
-  #charlas h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: left;
-    padding-left: 10%;
-    position: relative;
-  }
-
-  #charlas h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: #ff9bcb;
-    margin-top: 5px;
-    border-radius: 3px;
-  }
-
-  .cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    padding: 0 10%;
-  }
-
-  .charla-card {
-    background: #181b2e;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 6px 12px rgba(255, 155, 203, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 280px;
-  }
-
-  .charla-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255, 155, 203, 0.3);
-  }
-
-  .charla-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-  }
-
-  .charla-info {
-    padding: 15px;
-    text-align: left;
-  }
-
-  .charla-info h3 {
-    font-size: 1.1rem;
-    color: #ffd1e1;
-    margin-bottom: 8px;
-  }
-
-  .charla-info p {
-    font-size: 0.9rem;
-    color: #d1d1e0;
-  }
-</style>
-
+    </section>
 
     <section id="proyectos">
       <h2>Proyectos</h2>
