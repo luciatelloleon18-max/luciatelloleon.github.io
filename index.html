@@ -122,7 +122,7 @@
   .charlas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
+    gap: 1.2rem;
     margin-top: 1rem;
   }
 
@@ -144,6 +144,11 @@
     height: 160px;
     object-fit: cover;
     border-bottom: 3px solid var(--rosa-acento);
+    transition: transform .3s ease;
+  }
+
+  .charla-card:hover img {
+    transform: scale(1.03);
   }
 
   .charla-info {
@@ -166,7 +171,7 @@
     color: var(--rosa-intenso);
     font-weight: 600;
   }
-
+</style>
     /* CONTACTO */
     #contacto p {
       text-align: center;
@@ -255,7 +260,7 @@
 </div>
 </section>
     
-    <!-- === CHARLAS & VIDEOS === -->
+   <!-- === CHARLAS & VIDEOS === -->
 <section id="charlas">
   <h2>Charlas & Videos</h2>
 
@@ -274,29 +279,30 @@
 
     <!-- Charla 2 -->
     <div class="charla-card">
-      <a href="assets/docs/charla2.pdf" target="_blank">
-        <img src="assets/images/charla2.png" alt="Análisis Léxico">
+      <a href="assets/docs/Charla2.pdf" target="_blank">
+        <img src="assets/images/Charla2.png" alt="Nombre de la charla 2">
       </a>
       <div class="charla-info">
-        <h3>Análisis Léxico</h3>
-        <p><strong>Evento:</strong> Curso de Sistemas Operativos</p>
-        <p><strong>Descripción:</strong> Charla sobre el proceso de análisis léxico en compiladores.</p>
+        <h3>Nombre de la charla 2</h3>
+        <p><strong>Evento:</strong> Nombre del evento</p>
+        <p><strong>Descripción:</strong> Breve descripción de la charla.</p>
       </div>
     </div>
 
     <!-- Charla 3 -->
     <div class="charla-card">
-      <a href="assets/docs/charla3.pdf" target="_blank">
-        <img src="assets/images/charla3.png" alt="Análisis Sintáctico">
+      <a href="assets/docs/Charla3.pdf" target="_blank">
+        <img src="assets/images/Charla3.png" alt="Nombre de la charla 3">
       </a>
       <div class="charla-info">
-        <h3>Análisis Sintáctico</h3>
-        <p><strong>Evento:</strong> Curso de Sistemas Operativos</p>
-        <p><strong>Descripción:</strong> Introducción al análisis sintáctico y estructura de gramáticas.</p>
+        <h3>Nombre de la charla 3</h3>
+        <p><strong>Evento:</strong> Nombre del evento</p>
+        <p><strong>Descripción:</strong> Breve descripción de la charla.</p>
       </div>
     </div>
   </div>
 </section>
+
 
     <section id="proyectos">
       <h2>Proyectos</h2>
