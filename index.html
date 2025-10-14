@@ -199,54 +199,67 @@
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg" alt="Pandas"><span>Pandas</span></div>
         <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg" alt="NumPy"><span>NumPy</span></div>
 
-        <!-- ICONO SQL genérico (SVG inline para consistencia y sin depender de un icono incorrecto) -->
+        <!-- ICONO SQL -->
         <div class="skill-item" aria-label="SQL">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <title>SQL</title>
-            <g fill="none" fill-rule="evenodd">
-              <ellipse cx="12" cy="6" rx="7" ry="2.2" fill="#e79ab0"/>
-              <path d="M5 6v6c0 1.2 3.13 2.2 7 2.2s7-1 7-2.2V6" fill="#f4b6c2"/>
-              <path d="M5 12v6c0 1.2 3.13 2.2 7 2.2s7-1 7-2.2v-6" fill="#e79ab0" opacity="0.9"/>
-              <ellipse cx="12" cy="18.4" rx="7" ry="1.6" fill="#f4b6c2" />
-            </g>
-          </svg>
-          <span>SQL</span>
-        </div>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 64 64"
+    width="60"
+    height="60"
+    role="img"
+    aria-hidden="true"
+    style="filter: grayscale(1) brightness(0);"
+  >
+    <title>SQL</title>
+    <g fill="none" stroke="#000" stroke-width="2">
+      <ellipse cx="32" cy="12" rx="20" ry="6" fill="#fff" />
+      <path d="M12 12v24c0 3.3 9 6 20 6s20-2.7 20-6V12" fill="#fff"/>
+      <path d="M12 36v16c0 3.3 9 6 20 6s20-2.7 20-6V36" fill="#fff" />
+      <ellipse cx="32" cy="52" rx="20" ry="6" fill="#fff"/>
+    </g>
+  </svg>
+  <span>SQL</span>
+</div>
 
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI"><span>Power BI</span></div>
-      </div>
-    </section>
-
+<div class="skill-item">
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI">
+  <span>Power BI</span>
+</div>
+</div>
+</section>
     <!-- CHARLAS: subida y preview -->
-    <section id="charlas">
-      <h2>Charlas & Vídeos</h2>
-      <p>Aquí puedes subir tus presentaciones (PDF/PPT/Imágenes). Si subes un PDF verás la portada en vista previa.</p>
-
-      <div class="charlas-grid">
-        <div class="charla-card">
-          <div class="charla-img">📎</div>
-          <div class="charla-content">
-            <h4>Subir presentación / charla</h4>
-            <p>Soportado: .pdf, .ppt, .pptx, .jpg, .png. (PDF se muestra en preview)</p>
-
-            <div class="charla-upload">
-              <label for="fileCharla">Seleccionar archivo</label>
-              <input id="fileCharla" type="file" accept=".pdf,.ppt,.pptx,.jpg,.jpeg,.png" />
-            </div>
-
-            <div id="previewArea" class="preview-wrapper" style="display:none;">
-              <div class="preview-toolbar">
-                <strong id="previewName" style="font-size:.95rem;color:var(--texto)"></strong>
-                <div style="flex:1"></div>
-                <button id="closePreview" style="background:none;border:0;color:var(--rosa-intenso);cursor:pointer;font-weight:600">Cerrar</button>
-              </div>
-              <div id="previewContent" style="padding:.6rem;"></div>
-            </div>
-
-          </div>
-        </div>
+   <section id="charlas">
+  <h2>Charlas & Vídeos</h2>
+  <div class="charlas-grid">
+    <div class="charla-card">
+      <div class="charla-preview-wrapper">
+        <img src="https://i.imgur.com/0D4hR7h.png" alt="Charla 1" class="charla-preview">
+        <div class="overlay"><span>Ver presentación</span></div>
       </div>
-    </section>
+      <h4>STEM para niñas</h4>
+      <a href="charla1.pdf" target="_blank">Abrir</a>
+    </div>
+
+    <div class="charla-card">
+      <div class="charla-preview-wrapper">
+        <img src="https://i.imgur.com/z3a0y6Z.png" alt="Charla 2" class="charla-preview">
+        <div class="overlay"><span>Ver presentación</span></div>
+      </div>
+      <h4>Introducción a la Ciencia de Datos</h4>
+      <a href="charla2.pdf" target="_blank">Abrir</a>
+    </div>
+
+    <div class="charla-card">
+      <div class="charla-preview-wrapper">
+        <img src="https://i.imgur.com/FlPloQA.png" alt="Charla 3" class="charla-preview">
+        <div class="overlay"><span>Ver presentación</span></div>
+      </div>
+      <h4>Programación Creativa</h4>
+      <a href="charla3.pdf" target="_blank">Abrir</a>
+    </div>
+  </div>
+</section>
+
 
     <section id="proyectos">
       <h2>Proyectos</h2>
