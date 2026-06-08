@@ -3,447 +3,1043 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucía Tello | Portafolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <title>Lucía Tello | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --rosa-claro:#fdeef4;
-      --rosa-acento:#f4b6c2;
-      --rosa-intenso:#e79ab0;
-      --texto:#333;
-      --blanco:#fff;
-    }
-    *{box-sizing:border-box; scroll-behavior:smooth;}
-    body{ margin:0; font-family:'Poppins',sans-serif; background-color:var(--rosa-claro); color:var(--texto); }
-
-    /* NAVBAR */
-    nav{
-      background-color:var(--blanco);
-      box-shadow:0 2px 10px rgba(0,0,0,0.05);
-      position:fixed; top:0; width:100%; z-index:1000;
-      display:flex; justify-content:center; gap:1rem; padding:0.9rem 1rem; flex-wrap:wrap;
-      transition:transform .28s ease, box-shadow .2s;
-    }
-    nav.hidden-nav{ transform: translateY(-110%); }
-    nav a{ color:var(--texto); text-decoration:none; font-weight:500; transition:color .2s; padding:0.25rem .5rem; }
-    nav a:hover{ color:var(--rosa-intenso); }
-
-    main{ padding-top:5.6rem; }
-
-    /* HEADER */
-    header{ text-align:center; padding:3.5rem 2rem 2rem; }
-    header img{ width:150px;height:150px;border-radius:50%;object-fit:cover;border:4px solid var(--rosa-acento);box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-    header h1{ margin-top:1rem;color:var(--rosa-intenso);font-size:2.1rem; }
-    header p{ max-width:760px;margin:.6rem auto 0;font-size:1rem; }
-
-    section{ padding:3rem 1.5rem; max-width:1000px; margin:0 auto; }
-    h2{ color:var(--rosa-intenso); border-bottom:2px solid var(--rosa-acento); display:inline-block; margin-bottom:1rem; font-size:1.6rem; }
-
-    .card{ background-color:var(--blanco); border-radius:12px; padding:1.2rem; margin-bottom:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform .2s, box-shadow .3s; }
-    .card:hover{ transform:translateY(-3px); box-shadow:0 8px 16px rgba(0,0,0,0.08); }
-
-    /* SKILLS */
-  .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      justify-content: center;
-      align-items: center;
+    :root {
+      --cream: #fdf6f0;
+      --blush: #f9dde8;
+      --rose: #e8a4bc;
+      --deep-rose: #c4627f;
+      --mauve: #8b4a5e;
+      --dark: #2d1a22;
+      --mid: #6b3d50;
+      --text: #3d2430;
+      --white: #fff;
+      --glass: rgba(255,255,255,0.72);
     }
 
-    .skill-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      transition: transform 0.3s;
-      width: 92px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    .skill-item:hover { transform: translateY(-6px) scale(1.02); }
-
-    .skill-item img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)) brightness(0.95);
-      transition: all 0.25s;
+    /* ── GRAIN OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
-    .skill-item img:hover {
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.16)) brightness(1);
-      transform: scale(1.07);
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 3rem;
+      background: rgba(253,246,240,0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(232,164,188,0.2);
+      transition: transform .3s ease;
     }
-
-    .skill-item span {
-      font-size: 0.85rem;
-      color: var(--rosa-intenso);
-      font-weight: 500;
-      text-align: center;
+    nav.hidden { transform: translateY(-100%); }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--deep-rose);
+      letter-spacing: -.01em;
     }
-
-    /* TRAYECTORIA (timeline con puntitos centrados sobre la línea) */
-    .timeline{ position:relative; margin-top:1rem; padding-left:50px; }
-    .timeline::before{ content:''; position:absolute; left:25px; top:0; width:4px; height:100%; background:linear-gradient(180deg,var(--rosa-acento),var(--rosa-intenso)); border-radius:4px; }
-    .timeline-item{ position:relative; margin-bottom:1.6rem; }
-    /* DOT pequeño centrado exactamente sobre la línea para cada item */
-    .timeline-dot{ position:absolute; left:21px; top:50%; transform:translateY(-50%); width:12px; height:12px; background-color:var(--rosa-intenso); border:2px solid var(--blanco); border-radius:50%; box-shadow:none; }
-    .timeline-content{ background-color:var(--blanco); padding:1rem; border-radius:12px; box-shadow:0 6px 14px rgba(0,0,0,0.06); border-left:4px solid rgba(231,154,176,0.12); transition:transform .15s; position:relative; }
-    .timeline-content:hover{ transform:translateY(-4px); }
-    .timeline-year{ color:var(--rosa-intenso); font-weight:700; font-size:.98rem; }
-    .timeline-title{ color:var(--texto); font-weight:600; font-size:1.02rem; margin-bottom:.25rem; }
-    .timeline-desc{ color:#555; font-size:.92rem; }
-
-    /* GRIDS */
-    .proyectos,.experiencias-grid,.honores-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem; margin-top:1rem; }
-    .proyecto,.experiencia-card,.honor-card{ background-color:var(--blanco); border-radius:12px; padding:1rem; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition:transform .2s ease, box-shadow .25s ease; }
-    .proyecto:hover,.experiencia-card:hover,.honor-card:hover{ transform:translateY(-6px); box-shadow:0 10px 20px rgba(0,0,0,0.08); }
-    .proyecto h3,.experiencia-card h4,.honor-card h4{ color:var(--rosa-intenso); margin:0 0 .4rem 0; font-size:1.05rem; }
-    .proyecto p,.experiencia-card p,.honor-card p{ margin:0; font-size:.95rem; color:#444; }
-
-    /* === CHARLAS === */
-  #charlas {
-    background-color: var(--rosa-claro);
-    padding: 3rem 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  #charlas h2 {
-    color: var(--rosa-intenso);
-    border-bottom: 2px solid var(--rosa-acento);
-    display: inline-block;
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-    text-align: left;
-  }
-
-  .charlas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.2rem;
-    margin-top: 1rem;
-  }
-
-  .charla-card {
-    background-color: var(--blanco);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform .2s ease, box-shadow .25s ease;
-    overflow: hidden;
-  }
-
-  .charla-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-  }
-
-  .charla-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-bottom: 3px solid var(--rosa-acento);
-    transition: transform .3s ease;
-  }
-
-  .charla-card:hover img {
-    transform: scale(1.03);
-  }
-
-  .charla-info {
-    padding: 1rem;
-  }
-
-  .charla-info h3 {
-    color: var(--rosa-intenso);
-    margin: 0 0 0.5rem 0;
-    font-size: 1.05rem;
-  }
-
-  .charla-info p {
-    margin: 0.25rem 0;
-    color: #444;
-    font-size: 0.92rem;
-  }
-
-  .charla-info strong {
-    color: var(--rosa-intenso);
-    font-weight: 600;
-  }
-
-    /* CONTACTO */
-    #contacto p {
-      text-align: center;
-      font-size: 1rem;
-      margin: 0.6rem 0;
-    }
-    #contacto a {
-      color: var(--rosa-intenso);
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
       text-decoration: none;
+      font-size: .82rem;
       font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--mid);
+      transition: color .2s;
+      position: relative;
     }
-    #contacto a:hover { text-decoration: underline; }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--deep-rose);
+      transition: width .25s;
+    }
+    .nav-links a:hover { color: var(--deep-rose); }
+    .nav-links a:hover::after { width: 100%; }
 
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 7rem 5rem 4rem;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 70% at 80% 20%, rgba(249,221,232,0.6) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 80%, rgba(232,164,188,0.25) 0%, transparent 50%);
+      z-index: 0;
+    }
+    .hero-text { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      font-size: .75rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      background: rgba(232,164,188,0.18);
+      border: 1px solid rgba(196,98,127,0.25);
+      padding: .3rem .9rem;
+      border-radius: 99px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: .6rem;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--deep-rose);
+    }
+    .hero-title {
+      font-size: 1.05rem;
+      color: var(--mid);
+      font-weight: 400;
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+    .hero-desc {
+      font-size: .95rem;
+      color: #6b4a59;
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--deep-rose);
+      color: #fff;
+      border: none;
+      padding: .75rem 1.8rem;
+      border-radius: 99px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(196,98,127,0.3);
+    }
+    .btn-primary:hover {
+      background: var(--mauve);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139,74,94,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--deep-rose);
+      border: 1.5px solid var(--deep-rose);
+      padding: .75rem 1.8rem;
+      border-radius: 99px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-outline:hover {
+      background: var(--deep-rose);
+      color: #fff;
+      transform: translateY(-2px);
+    }
 
-    /* CONTACTO */
-    #contacto p { text-align: center; font-size: 1rem; margin: 0.6rem 0; }
-    #contacto a { color: var(--rosa-intenso); text-decoration: none; font-weight: 500; }
-    #contacto a:hover { text-decoration: underline; }
+    .hero-image-col {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-photo-wrap {
+      position: relative;
+      width: 340px; height: 420px;
+    }
+    .hero-photo-deco {
+      position: absolute;
+      top: -16px; right: -16px;
+      width: 100%; height: 100%;
+      border-radius: 40% 60% 50% 50% / 40% 40% 60% 60%;
+      background: linear-gradient(135deg, var(--rose), var(--blush));
+      z-index: 0;
+    }
+    .hero-photo-deco2 {
+      position: absolute;
+      bottom: -12px; left: -12px;
+      width: 80%; height: 80%;
+      border-radius: 50%;
+      background: rgba(249,221,232,0.5);
+      z-index: 0;
+      filter: blur(20px);
+    }
+    .hero-photo {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 38% 62% 48% 52% / 42% 38% 62% 58%;
+      box-shadow: 0 24px 60px rgba(61,36,48,0.2);
+    }
+    .hero-stat-pills {
+      position: absolute;
+      bottom: 24px; left: -36px;
+      display: flex; flex-direction: column; gap: .8rem;
+      z-index: 2;
+    }
+    .stat-pill {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(232,164,188,0.35);
+      border-radius: 14px;
+      padding: .65rem 1.1rem;
+      box-shadow: 0 8px 24px rgba(61,36,48,0.1);
+      white-space: nowrap;
+    }
+    .stat-pill .num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--deep-rose);
+      display: block;
+      line-height: 1;
+    }
+    .stat-pill .lbl {
+      font-size: .7rem;
+      color: var(--mid);
+      letter-spacing: .04em;
+    }
 
-    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #666; }
+    /* ── SHARED SECTION ── */
+    .section {
+      padding: 5rem 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      display: block;
+      margin-bottom: .7rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 2.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--deep-rose); }
 
-    /* responsive */
-    @media(max-width:900px){ header{ padding-top:2.8rem; } .skill-item{ width:78px; } }
-    @media(max-width:600px){ header{ padding-top:2.2rem; } nav{ gap:.6rem; padding:.7rem; } .timeline{ padding-left:36px; } .timeline::before{ left:18px; } .timeline-dot{ left:12px; } .preview-iframe{ height:240px; } }
+    /* ── SKILLS ── */
+    #skills-section { background: var(--white); }
+    .skills-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 5rem;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 1.5rem;
+      margin-top: .5rem;
+    }
+    .skill-chip {
+      display: flex; flex-direction: column; align-items: center; gap: .6rem;
+      background: var(--cream);
+      border: 1px solid rgba(232,164,188,0.25);
+      border-radius: 18px;
+      padding: 1.2rem .8rem;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+      cursor: default;
+    }
+    .skill-chip:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(196,98,127,0.15);
+      border-color: var(--rose);
+    }
+    .skill-chip img, .skill-chip svg {
+      width: 36px; height: 36px;
+      object-fit: contain;
+      opacity: .85;
+      transition: opacity .2s;
+    }
+    .skill-chip:hover img, .skill-chip:hover svg { opacity: 1; }
+    .skill-chip span {
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--mid);
+      text-align: center;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-top: .5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--rose), rgba(196,98,127,0.1));
+      border-radius: 2px;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 2rem;
+      animation: fadeUp .5s both;
+    }
+    .tl-item:nth-child(1) { animation-delay: .1s; }
+    .tl-item:nth-child(2) { animation-delay: .2s; }
+    .tl-item:nth-child(3) { animation-delay: .3s; }
+    .tl-item:nth-child(4) { animation-delay: .4s; }
+    .tl-item:nth-child(5) { animation-delay: .5s; }
+    .tl-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 1.1rem;
+      width: 14px; height: 14px;
+      background: var(--white);
+      border: 2.5px solid var(--rose);
+      border-radius: 50%;
+      transition: border-color .2s, transform .2s;
+    }
+    .tl-item:hover .tl-dot {
+      border-color: var(--deep-rose);
+      transform: scale(1.3);
+    }
+    .tl-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid rgba(232,164,188,0.2);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .tl-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 28px rgba(196,98,127,0.1);
+    }
+    .tl-year {
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+      font-weight: 600;
+      margin-bottom: .3rem;
+    }
+    .tl-role {
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 1rem;
+      margin-bottom: .2rem;
+    }
+    .tl-org {
+      font-size: .85rem;
+      color: var(--mid);
+      margin-bottom: .5rem;
+      font-style: italic;
+    }
+    .tl-desc { font-size: .88rem; color: #6b4a59; line-height: 1.65; }
+
+    /* ── PROYECTOS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(232,164,188,0.2);
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--rose), var(--deep-rose));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s;
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(196,98,127,0.12);
+    }
+    .project-year {
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 700;
+      margin-bottom: .8rem;
+    }
+    .project-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-bottom: .5rem;
+    }
+    .project-sub {
+      font-size: .82rem;
+      color: var(--deep-rose);
+      font-weight: 600;
+      margin-bottom: .8rem;
+    }
+    .project-desc { font-size: .88rem; color: #6b4a59; line-height: 1.7; }
+
+    /* ── TALKS ── */
+    .talks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .talk-card {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(232,164,188,0.2);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .talk-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(196,98,127,0.12);
+    }
+    .talk-img-wrap {
+      height: 160px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--blush), var(--rose));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .talk-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .35s;
+    }
+    .talk-card:hover .talk-img-wrap img { transform: scale(1.05); }
+    .talk-img-placeholder {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      padding: 1rem;
+    }
+    .talk-body { padding: 1.3rem 1.5rem; }
+    .talk-event {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+    .talk-title {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: .98rem;
+      margin-bottom: .4rem;
+      line-height: 1.4;
+    }
+    .talk-desc { font-size: .85rem; color: #6b4a59; line-height: 1.65; }
+
+    /* ── AWARDS ── */
+    #premios { background: var(--white); }
+    .awards-inner { max-width: 1200px; margin: 0 auto; padding: 5rem; }
+    .awards-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+    .award-item {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid rgba(232,164,188,0.2);
+      transition: transform .2s, box-shadow .2s;
+      position: relative;
+    }
+    .award-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(196,98,127,0.12);
+    }
+    .award-year {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: rgba(196,98,127,0.15);
+      position: absolute;
+      top: 1rem; right: 1.2rem;
+      font-weight: 400;
+    }
+    .award-title {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: .95rem;
+      margin-bottom: .4rem;
+      padding-right: 2.5rem;
+    }
+    .award-detail { font-size: .82rem; color: var(--mid); line-height: 1.55; }
+
+    /* ── ABOUT (education + langs) ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .degrees-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .degree-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 1.2rem 1.5rem;
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid rgba(232,164,188,0.2);
+      transition: transform .2s;
+    }
+    .degree-item:hover { transform: translateX(4px); }
+    .degree-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--blush);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .degree-icon svg { width: 20px; height: 20px; fill: var(--deep-rose); }
+    .degree-years { font-size: .72rem; color: var(--rose); font-weight: 700; letter-spacing: .08em; }
+    .degree-name { font-weight: 700; color: var(--dark); font-size: .95rem; }
+    .degree-inst { font-size: .82rem; color: var(--mid); font-style: italic; }
+    .degree-note { font-size: .78rem; color: var(--deep-rose); margin-top: .25rem; }
+
+    .langs-certs { display: flex; flex-direction: column; gap: 1.5rem; }
+    .mini-section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--dark);
+      margin-bottom: .8rem;
+    }
+    .lang-row {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: .7rem;
+    }
+    .lang-name { font-weight: 600; font-size: .88rem; color: var(--dark); width: 72px; }
+    .lang-level { font-size: .75rem; color: var(--mid); width: 26px; }
+    .lang-bar-wrap { flex: 1; height: 6px; background: var(--blush); border-radius: 3px; }
+    .lang-bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--rose), var(--deep-rose)); }
+    .cert-item {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .8rem 1rem;
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid rgba(232,164,188,0.2);
+      margin-bottom: .6rem;
+    }
+    .cert-year { font-size: .72rem; font-weight: 700; color: var(--rose); letter-spacing: .06em; white-space: nowrap; }
+    .cert-name { font-size: .85rem; color: var(--text); line-height: 1.4; }
+
+    /* ── CONTACT ── */
+    #contacto-section { background: var(--dark); }
+    .contact-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 6rem 5rem;
+      text-align: center;
+    }
+    .contact-inner .section-label { color: var(--rose); }
+    .contact-inner .section-title { color: var(--white); }
+    .contact-links {
+      display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(232,164,188,0.2);
+      color: var(--blush);
+      text-decoration: none;
+      padding: .8rem 1.6rem;
+      border-radius: 99px;
+      font-size: .88rem;
+      font-weight: 500;
+      transition: background .2s, border-color .2s, transform .15s;
+    }
+    .contact-link:hover {
+      background: rgba(232,164,188,0.12);
+      border-color: var(--rose);
+      transform: translateY(-2px);
+    }
+    footer {
+      background: var(--dark);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .8rem;
+      color: rgba(255,255,255,0.25);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text { animation: fadeUp .7s both; }
+    .hero-image-col { animation: fadeUp .7s .15s both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: .8rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      .hero { grid-template-columns: 1fr; padding: 6rem 2rem 3rem; gap: 3rem; }
+      .hero-image-col { order: -1; }
+      .hero-photo-wrap { width: 240px; height: 300px; }
+      .hero-stat-pills { bottom: 0; left: -10px; }
+      .section, .skills-inner, .awards-inner, .contact-inner { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 5rem 1.5rem 3rem; }
+      .skills-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-inner { padding: 4rem 1.5rem; }
+    }
   </style>
 </head>
 <body>
-  <nav id="site-nav">
-    <a href="#inicio">Inicio</a>
-    <a href="#skills">Skills & Tech Stack</a>
-    <a href="#charlas">Charlas & Vídeos</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#trayectoria">Trayectoria</a>
-    <a href="#experiencia">Experiencias</a>
-    <a href="#honores">Honores & Premios</a>
-    <a href="#contacto">Contáctame</a>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <span class="nav-logo">Lucía Tello</span>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#charlas">Charlas</a>
+      <a href="#premios">Premios</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#contacto-section">Contacto</a>
+    </div>
   </nav>
 
-  <main>
-    <header id="inicio">
-      <img src="lu.png" alt="Foto de Lucía Tello">
-      <h1>Lucía Tello</h1>
-      <p>Estudiante de Computación Científica en la UNMSM, apasionada por la programación, el análisis de datos y el impacto social de la innovación.</p>
-    </header>
-
-    <section id="sobre-mi">
-      <h2>Sobre mí</h2>
-      <div class="card">
-        <p>Hola, soy Lucía Tello, estudiante de Computación Científica en la UNMSM y entusiasta de la tecnología apasionada por la programación, el análisis de datos y el impacto social de la innovación. Me interesa especialmente cómo la ciencia, la educación y la tecnología pueden abrir más oportunidades para las mujeres y reducir brechas de acceso. En este espacio comparto mis proyectos, aprendizajes y experimentos — desde código hasta ideas con propósito. Siempre aprendiendo algo nuevo, un commit a la vez.</p>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills & Tech Stack</h2>
-      <div class="skills-container">
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python"><span>Python</span></div>
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg" alt="Pandas"><span>Pandas</span></div>
-        <div class="skill-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg" alt="NumPy"><span>NumPy</span></div>
-
-        <!-- ICONO SQL -->
-        <div class="skill-item" aria-label="SQL">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 64 64"
-    width="60"
-    height="60"
-    role="img"
-    aria-hidden="true"
-    style="filter: grayscale(1) brightness(0);"
-  >
-    <title>SQL</title>
-    <g fill="none" stroke="#000" stroke-width="2">
-      <ellipse cx="32" cy="12" rx="20" ry="6" fill="#fff" />
-      <path d="M12 12v24c0 3.3 9 6 20 6s20-2.7 20-6V12" fill="#fff"/>
-      <path d="M12 36v16c0 3.3 9 6 20 6s20-2.7 20-6V36" fill="#fff" />
-      <ellipse cx="32" cy="52" rx="20" ry="6" fill="#fff"/>
-    </g>
-  </svg>
-  <span>SQL</span>
-</div>
-
-<div class="skill-item">
-  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI">
-  <span>Power BI</span>
-</div>
-</div>
-</section>
-    
-   <!-- === CHARLAS & VIDEOS === -->
-<section id="charlas">
-  <h2>Charlas & Videos</h2>
-
-  <div class="charlas-grid">
-    <!-- Charla 1 -->
-    <div class="charla-card">
-      <a href="assets/docs/Charla1.pdf" target="_blank">
-        <img src="assets/images/Charla1.png" alt="Machine Learning para Estudiantes">
-      </a>
-      <div class="charla-info">
-        <h3>Machine Learning para Estudiantes</h3>
-        <p><strong>Evento:</strong> Olimpiada de Matemática 2024 (FCM – UNMSM)</p>
-        <p><strong>Descripción:</strong> Introducción a Machine Learning para nivel secundaria.</p>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-text">
+      <span class="hero-tag">Computación Científica · UNMSM</span>
+      <h1 class="hero-name">Lucía<br><em>Tello León</em></h1>
+      <p class="hero-title">Estudiante de Computación Científica &amp; Líder en tecnología con impacto social</p>
+      <p class="hero-desc">Apasionada por la IA, el análisis de datos y la innovación con propósito. Co-fundadora de Women in Science, presidenta del Capítulo IEEE CIS UNMSM. Siempre aprendiendo — un commit a la vez.</p>
+      <div class="hero-btns">
+        <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+        <a href="mailto:lucia.tellol@unmsm.edu.pe" class="btn-outline">Contactar</a>
       </div>
     </div>
-
-    <!-- Charla 2 -->
-    <div class="charla-card">
-      <a href="assets/docs/Charla2.pdf" target="_blank">
-        <img src="assets/images/Charla2.png" alt="Nombre de la charla 2">
-      </a>
-      <div class="charla-info">
-        <h3>Nombre de la charla 2</h3>
-        <p><strong>Evento:</strong> Nombre del evento</p>
-        <p><strong>Descripción:</strong> Breve descripción de la charla.</p>
+    <div class="hero-image-col">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-deco"></div>
+        <div class="hero-photo-deco2"></div>
+        <img src="lu.png" alt="Lucía Tello" class="hero-photo" onerror="this.style.display='none'">
+        <div class="hero-stat-pills">
+          <div class="stat-pill">
+            <span class="num">Top 15</span>
+            <span class="lbl">de 125 estudiantes</span>
+          </div>
+          <div class="stat-pill">
+            <span class="num">3+</span>
+            <span class="lbl">Premios nacionales</span>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Charla 3 -->
-    <div class="charla-card">
-      <a href="assets/docs/Charla3.pdf" target="_blank">
-        <img src="assets/images/Charla3.png" alt="Nombre de la charla 3">
-      </a>
-      <div class="charla-info">
-        <h3>Nombre de la charla 3</h3>
-        <p><strong>Evento:</strong> Nombre del evento</p>
-        <p><strong>Descripción:</strong> Breve descripción de la charla.</p>
+  <!-- SKILLS -->
+  <div id="skills" style="background:var(--white)">
+    <div class="skills-inner">
+      <span class="section-label">Herramientas</span>
+      <h2 class="section-title">Tech <em>Stack</em></h2>
+      <div class="skills-grid">
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg" alt="Python" style="filter:invert(30%) sepia(60%) saturate(600%) hue-rotate(180deg)">
+          <span>Python</span>
+        </div>
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg" alt="Pandas" style="filter:invert(20%) sepia(30%) saturate(500%) hue-rotate(280deg)">
+          <span>Pandas</span>
+        </div>
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg" alt="NumPy" style="filter:invert(25%) sepia(60%) saturate(500%) hue-rotate(200deg)">
+          <span>NumPy</span>
+        </div>
+        <div class="skill-chip">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px">
+            <g fill="none" stroke="var(--deep-rose)" stroke-width="3">
+              <ellipse cx="32" cy="14" rx="18" ry="6"/>
+              <path d="M14 14v14c0 3.3 8 6 18 6s18-2.7 18-6V14"/>
+              <path d="M14 28v14c0 3.3 8 6 18 6s18-2.7 18-6V28"/>
+            </g>
+          </svg>
+          <span>SQL</span>
+        </div>
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powerbi.svg" alt="Power BI" style="filter:invert(30%) sepia(80%) saturate(600%) hue-rotate(340deg)">
+          <span>Power BI</span>
+        </div>
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftexcel.svg" alt="Excel" style="filter:invert(25%) sepia(80%) saturate(500%) hue-rotate(100deg)">
+          <span>Excel</span>
+        </div>
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg" alt="Git" style="filter:invert(25%) sepia(60%) saturate(600%) hue-rotate(340deg)">
+          <span>Git</span>
+        </div>
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg" alt="HTML/CSS" style="filter:invert(30%) sepia(80%) saturate(500%) hue-rotate(340deg)">
+          <span>HTML/CSS</span>
+        </div>
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/latex.svg" alt="LaTeX" style="filter:invert(25%) sepia(40%) saturate(400%) hue-rotate(260deg)">
+          <span>LaTeX</span>
+        </div>
+        <div class="skill-chip">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/cplusplus.svg" alt="C++" style="filter:invert(25%) sepia(60%) saturate(500%) hue-rotate(200deg)">
+          <span>C++</span>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
+  <!-- TRAYECTORIA -->
+  <section class="section" id="trayectoria">
+    <span class="section-label">Historia</span>
+    <h2 class="section-title">Mi <em>Trayectoria</em></h2>
+    <div class="timeline">
 
-    <section id="proyectos">
-      <h2>Proyectos</h2>
-      <div class="proyectos">
-        <div class="proyecto"><h3>NASA Space Apps 2024</h3><p><em>Solstice — Zephir-O</em>, enfocado en simulaciones atmosféricas y visualización de datos climáticos.</p></div>
-        <div class="proyecto"><h3>NASA Space Apps 2025</h3><p><em>ASTRALIS BU</em>, simulador educativo sobre impacto de asteroides usando datasets de NASA.</p></div>
-        <div class="proyecto"><h3>VOTI</h3><p>Plataforma de visualización interactiva para datos públicos y sociales en Perú.</p></div>
-      </div>
-    </section>
-
-    <section id="trayectoria">
-      <h2>Trayectoria</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-title">Presidenta del Capítulo Estudiantil IEEE CIS UNMSM</div>
-            <div class="timeline-desc">Coordino un equipo multidisciplinario orientado al desarrollo tecnológico y la inclusión estudiantil en la comunidad IEEE.</div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-title">Chief Partnership Officer (CPO) — Datea+</div>
-            <div class="timeline-desc">Encargada de liderar la estrategia de alianzas, impulsando colaboraciones con organizaciones públicas, privadas y comunitarias.</div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2024-25</div>
-            <div class="timeline-title">Asistente de Contabilidad — SV ARQUEÓLOGOS E.I.R.L.</div>
-            <div class="timeline-desc">Apoyé la organización administrativa y contable: clasificación de comprobantes, armado de carpetas y control de archivos para oficina.</div>
-          </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2025 — 2026</div>
+          <div class="tl-role">Presidenta del Capítulo Estudiantil</div>
+          <div class="tl-org">IEEE CIS UNMSM · Lima, Perú</div>
+          <div class="tl-desc">Planificación de eventos académicos y talleres. Coordinación de equipos estudiantiles y actividades de divulgación científica.</div>
         </div>
       </div>
-    </section>
 
-    <section id="experiencia">
-      <h2>Experiencias & Conferencias</h2>
-      <div class="experiencias-grid">
-        <div class="experiencia-card"><h4>Ponente — Eventos estudiantiles</h4><p>Charlas de programación y datos.</p></div>
-        <div class="experiencia-card"><h4>Panelista — Foros educativos</h4><p>Foros sobre educación y sostenibilidad.</p></div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2025</div>
+          <div class="tl-role">Chief Partnership Officer (CPO)</div>
+          <div class="tl-org">Datea+</div>
+          <div class="tl-desc">Liderazgo en estrategia de alianzas con organizaciones públicas, privadas y comunitarias.</div>
+        </div>
       </div>
-    </section>
 
-    <section id="honores">
-      <h2>Honores & Premios</h2>
-      <div class="honores-grid">
-        <div class="honor-card"><h4>Nasa Space App Challenge Moquegua — Equipo Finalista</h4><p>ZEPHIR-O Landing Page (2024)</p></div>
-        <div class="honor-card"><h4>Latin Code Week - Equipo Finalista (JA Perú/SAP Perú)</h4><p>Reconocimiento al rendimiento académico. (2023)</p></div>
-        <div class="honor-card"><h4>Women Can Do Perú — Equipo Ganador (Eje de Ciencia)</h4><p>Proyecto biotecnológico con microalgas. (2021)</p></div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2024 — Presente</div>
+          <div class="tl-role">Co-Fundadora</div>
+          <div class="tl-org">Women in Science · Perú</div>
+          <div class="tl-desc">Organización dedicada a promover oportunidades STEAM y espacios de mentoría para jóvenes mujeres.</div>
+        </div>
       </div>
-    </section>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>📧 <a href="mailto:luciagiullianatelloleon@gmail.com">luciagiullianatelloleon@gmail.com</a></p>
-      <p><a href="https://www.linkedin.com/in/lucia-giulliana-tello-le%C3%B3n-b8288120b/" target="_blank">LinkedIn</a> |
-         <a href="https://www.instagram.com/luciatelle18/" target="_blank">Instagram</a></p>
-    </section>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2023 — 2025</div>
+          <div class="tl-role">Asistente de Contabilidad y Administración</div>
+          <div class="tl-org">SV Arqueólogos E.I.R.L. · Lima, Perú</div>
+          <div class="tl-desc">Registro y control de transacciones contables. Organización de documentación física y digital.</div>
+        </div>
+      </div>
 
-    <footer>© 2025 Lucía Tello — Hecho con 💗 y curiosidad.</footer>
-  </main>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2023 — Presente</div>
+          <div class="tl-role">B.Sc. Computación Científica</div>
+          <div class="tl-org">Universidad Nacional Mayor de San Marcos (UNMSM)</div>
+          <div class="tl-desc">Ranking actual: puesto 15 de 125 estudiantes.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="section" id="proyectos" style="background:var(--white); max-width:100%; padding: 5rem 0;">
+    <div style="max-width:1200px; margin:0 auto; padding: 0 5rem;">
+      <span class="section-label">Ciencia & Código</span>
+      <h2 class="section-title">Proyectos <em>destacados</em></h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-year">NASA Space Apps · 2024</div>
+          <div class="project-name">Zephir-O</div>
+          <div class="project-sub">Simulación atmosférica</div>
+          <div class="project-desc">Simulaciones atmosféricas y visualización de datos climáticos. Equipo finalista en el hackathon de Moquegua.</div>
+        </div>
+        <div class="project-card">
+          <div class="project-year">NASA Space Apps · 2025</div>
+          <div class="project-name">ASTRALIS BU</div>
+          <div class="project-sub">Educación científica</div>
+          <div class="project-desc">Simulador educativo sobre el impacto de asteroides usando datasets abiertos de la NASA.</div>
+        </div>
+        <div class="project-card">
+          <div class="project-year">Proyecto personal</div>
+          <div class="project-name">VOTI</div>
+          <div class="project-sub">Datos públicos · Perú</div>
+          <div class="project-desc">Plataforma de visualización interactiva para datos públicos y sociales en Perú.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARLAS -->
+  <section class="section" id="charlas">
+    <span class="section-label">Divulgación</span>
+    <h2 class="section-title">Charlas &amp; <em>Videos</em></h2>
+    <div class="talks-grid">
+      <div class="talk-card">
+        <a href="assets/docs/Charla1.pdf" target="_blank">
+          <div class="talk-img-wrap">
+            <img src="assets/images/Charla1.png" alt="Machine Learning para Estudiantes" onerror="this.style.display='none'">
+            <div class="talk-img-placeholder" style="display:none">Machine Learning<br>para Estudiantes</div>
+          </div>
+        </a>
+        <div class="talk-body">
+          <div class="talk-event">Olimpiada de Matemática 2024 · FCM–UNMSM</div>
+          <div class="talk-title">Machine Learning para Estudiantes</div>
+          <div class="talk-desc">Introducción a Machine Learning dirigida a estudiantes de nivel secundaria.</div>
+        </div>
+      </div>
+      <div class="talk-card">
+        <a href="assets/docs/Charla2.pdf" target="_blank">
+          <div class="talk-img-wrap">
+            <img src="assets/images/Charla2.png" alt="Charla 2" onerror="this.style.display='none'">
+            <div class="talk-img-placeholder">Próximamente</div>
+          </div>
+        </a>
+        <div class="talk-body">
+          <div class="talk-event">Próximo evento</div>
+          <div class="talk-title">Nombre de la charla 2</div>
+          <div class="talk-desc">Descripción de la charla. Actualiza este contenido con tu próxima presentación.</div>
+        </div>
+      </div>
+      <div class="talk-card">
+        <a href="assets/docs/Charla3.pdf" target="_blank">
+          <div class="talk-img-wrap">
+            <img src="assets/images/Charla3.png" alt="Charla 3" onerror="this.style.display='none'">
+            <div class="talk-img-placeholder">Próximamente</div>
+          </div>
+        </a>
+        <div class="talk-body">
+          <div class="talk-event">Próximo evento</div>
+          <div class="talk-title">Nombre de la charla 3</div>
+          <div class="talk-desc">Descripción de la charla. Actualiza este contenido con tu próxima presentación.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIOS -->
+  <div id="premios" style="background:var(--white)">
+    <div class="awards-inner">
+      <span class="section-label">Reconocimientos</span>
+      <h2 class="section-title">Premios &amp; <em>Logros</em></h2>
+      <div class="awards-list">
+        <div class="award-item">
+          <div class="award-year">2025</div>
+          <div class="award-title">Presidenta del Capítulo Estudiantil IEEE CIS UNMSM</div>
+          <div class="award-detail">Liderazgo en inteligencia computacional a nivel nacional.</div>
+        </div>
+        <div class="award-item">
+          <div class="award-year">2024</div>
+          <div class="award-title">3er Lugar — NASA Space Apps Challenge Moquegua</div>
+          <div class="award-detail">Equipo Zephir-O, categoría de visualización de datos climáticos.</div>
+        </div>
+        <div class="award-item">
+          <div class="award-year">2023</div>
+          <div class="award-title">Finalista Nacional — Latin Code Week</div>
+          <div class="award-detail">JA Perú + SAP. Reconocimiento al rendimiento en tecnología y emprendimiento.</div>
+        </div>
+        <div class="award-item">
+          <div class="award-year">2022</div>
+          <div class="award-title">Jurado — Women Can Do Perú (Edición Binacional)</div>
+          <div class="award-detail">Evaluación de proyectos de innovación tecnológica liderados por mujeres jóvenes.</div>
+        </div>
+        <div class="award-item">
+          <div class="award-year">2021</div>
+          <div class="award-title">Ganadora — Women Can Do Perú Science Hub</div>
+          <div class="award-detail">Categoría Biotecnología. Proyecto de microalgas con impacto ambiental.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOBRE MÍ: EDUCACIÓN + IDIOMAS -->
+  <section class="section" id="sobre">
+    <span class="section-label">Perfil</span>
+    <h2 class="section-title">Educación &amp; <em>Idiomas</em></h2>
+    <div class="about-grid">
+      <div>
+        <div class="degrees-list">
+          <div class="degree-item">
+            <div class="degree-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zm0 13.5L5 12.5v4.5C5 19.5 8.1 21 12 21s7-1.5 7-4v-4.5l-7 4z"/></svg>
+            </div>
+            <div>
+              <div class="degree-years">2023–2028</div>
+              <div class="degree-name">B.Sc. Computación Científica</div>
+              <div class="degree-inst">UNMSM — Facultad de Ciencias Matemáticas</div>
+              <div class="degree-note">🏅 Puesto 15 de 125 estudiantes</div>
+            </div>
+          </div>
+          <div class="degree-item">
+            <div class="degree-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+            </div>
+            <div>
+              <div class="degree-years">2013–2019</div>
+              <div class="degree-name">English Program (Completado)</div>
+              <div class="degree-inst">ACPB Británico</div>
+            </div>
+          </div>
+          <div class="degree-item">
+            <div class="degree-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+            </div>
+            <div>
+              <div class="degree-years">2020</div>
+              <div class="degree-name">FCE Intensive Course — B2 First</div>
+              <div class="degree-inst">International House Lima</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="langs-certs">
+        <div>
+          <div class="mini-section-title">Idiomas</div>
+          <div class="lang-row">
+            <span class="lang-name">Español</span>
+            <span class="lang-level">C2</span>
+            <div class="lang-bar-wrap"><div class="lang-bar" style="width:100%"></div></div>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Inglés</span>
+            <span class="lang-level">B2</span>
+            <div class="lang-bar-wrap"><div class="lang-bar" style="width:70%"></div></div>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Francés</span>
+            <span class="lang-level">B1</span>
+            <div class="lang-bar-wrap"><div class="lang-bar" style="width:45%"></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="mini-section-title">Certificados</div>
+          <div class="cert-item">
+            <span class="cert-year">2026</span>
+            <span class="cert-name">Code In Place (Python) — Stanford University</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-year">2026</span>
+            <span class="cert-name">Getting Started with Generative AI — IBM</span>
+          </div>
+          <div class="cert-item">
+            <span class="cert-year">2020</span>
+            <span class="cert-name">B2 First Certification (FCE) — Cambridge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <div id="contacto-section">
+    <div class="contact-inner">
+      <span class="section-label">¿Hablamos?</span>
+      <h2 class="section-title" style="color:var(--white)">¿Tienes una <em style="color:var(--rose)">idea</em> o proyecto?</h2>
+      <p style="color:rgba(253,221,232,0.7); max-width:500px; margin:0 auto; font-size:.95rem; line-height:1.7;">Siempre abierta a nuevas colaboraciones, mentorías y oportunidades. ¡Escríbeme!</p>
+      <div class="contact-links">
+        <a href="mailto:lucia.tellol@unmsm.edu.pe" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          lucia.tellol@unmsm.edu.pe
+        </a>
+        <a href="https://www.linkedin.com/in/lucia-giulliana-tello-le%C3%B3n-b8288120b/" target="_blank" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/luciatelloleon18-max" target="_blank" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.instagram.com/luciatelle18/" target="_blank" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/></svg>
+          @luciatelle18
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 Lucía Giulliana Tello León — Hecho con 💗 y curiosidad.</footer>
 
   <script>
-    // --------- Menu hide on scroll down / show on scroll up ----------
+    // Scroll-hide nav
     (function(){
-      const nav = document.getElementById('site-nav');
-      let lastScroll = 0;
-      const threshold = 10;
+      const nav = document.getElementById('main-nav');
+      let last = 0;
       window.addEventListener('scroll', () => {
-        const st = window.pageYOffset || document.documentElement.scrollTop;
-        if (Math.abs(st - lastScroll) <= threshold) return;
-        if (st > lastScroll && st > 80){
-          nav.classList.add('hidden-nav');
-        } else {
-          nav.classList.remove('hidden-nav');
-        }
-        lastScroll = st <= 0 ? 0 : st;
-      }, {passive:true});
+        const y = window.scrollY;
+        nav.classList.toggle('hidden', y > last && y > 80);
+        last = y <= 0 ? 0 : y;
+      }, { passive: true });
     })();
 
-    // --------- Charla file preview (PDF, images, other) -----------
-    (function(){
-      const input = document.getElementById('fileCharla');
-      const previewArea = document.getElementById('previewArea');
-      const previewContent = document.getElementById('previewContent');
-      const previewName = document.getElementById('previewName');
-      const closeBtn = document.getElementById('closePreview');
-
-      function clearPreview(){
-        previewContent.innerHTML = '';
-        previewName.textContent = '';
-        previewArea.style.display = 'none';
-      }
-
-      if (closeBtn) closeBtn.addEventListener('click', clearPreview);
-
-      if (input) input.addEventListener('change', (e) => {
-        const f = e.target.files && e.target.files[0];
-        if (!f) { clearPreview(); return; }
-        const name = f.name;
-        const ext = name.split('.').pop().toLowerCase();
-        previewName.textContent = name;
-        previewArea.style.display = 'block';
-        previewContent.innerHTML = ''; // reset
-
-        const url = URL.createObjectURL(f);
-
-        if (ext === 'pdf') {
-          const iframe = document.createElement('iframe');
-          iframe.className = 'preview-iframe';
-          iframe.src = url;
-          previewContent.appendChild(iframe);
-        } else if (['jpg','jpeg','png','gif'].includes(ext)) {
-          const img = document.createElement('img');
-          img.className = 'preview-img';
-          img.src = url;
-          img.alt = name;
-          previewContent.appendChild(img);
-        } else {
-          const info = document.createElement('div');
-          info.style.padding = '.6rem';
-          info.innerHTML = `<p style="margin:0 .0rem .6rem 0;color:#444">No se puede previsualizar directamente este formato en el navegador. Puedes descargarlo o subir un PDF/imagen como portada.</p>`;
-          const a = document.createElement('a');
-          a.href = url; a.download = name; a.textContent = 'Descargar archivo';
-          a.style.display = 'inline-block'; a.style.marginTop = '.4rem'; a.style.color = 'var(--rosa-intenso)'; a.style.fontWeight = '600';
-          info.appendChild(a);
-          previewContent.appendChild(info);
-        }
-
-        setTimeout(()=> URL.revokeObjectURL(url), 20000);
+    // Fix talk-card img error → show placeholder
+    document.querySelectorAll('.talk-img-wrap img').forEach(img => {
+      img.addEventListener('error', function(){
+        this.style.display = 'none';
+        const ph = this.parentElement.querySelector('.talk-img-placeholder');
+        if (ph) ph.style.display = 'block';
       });
-    })();
+    });
   </script>
 </body>
 </html>
-
 
